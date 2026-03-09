@@ -1,0 +1,14 @@
+[build]
+target = "wasm32-wasip1"
+rustflags = [
+    "--remap-path-prefix", "$HOME=~",
+]
+
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = "debuginfo"
+
+#[profile.dev]
+#debug = true

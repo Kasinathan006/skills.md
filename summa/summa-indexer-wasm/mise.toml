@@ -1,0 +1,57 @@
+[settings]
+env_shell_expand = true
+
+[env]
+# Set to "release" for optimized builds, "debug" for debug builds
+BUILD_PROFILE = "${BUILD_PROFILE:-release}"
+
+[tasks."build:protoc"]
+description = "Build grpc-web glue"
+run = [
+    "npx protoc --plugin=protoc-gen-grpc-web=./node_modules/.bin/protoc-gen-grpc-web --ts_out src/grpc-web --ts_opt use_proto_field_name --proto_path ../summa-proto/proto ../summa-proto/proto/*.proto"
+]
+
+[tasks."build:wasm:cargo"]
+description = "Build wasm"
+run = [
+    'cargo build $([ "$BUILD_PROFILE" = "release" ] && echo "--release") --no-default-features --target wasm32-unknown-unknown',
+    '[ "$BUILD_PROFILE" = "debug" ] && cargo wasm2map --patch --base-url $PWD ../target/wasm32-unknown-unknown/$BUILD_PROFILE/summa_indexer_wasm.wasm || true',
+]
+
+[tasks."build:wasm:bindgen"]
+depends = ["build:wasm:cargo"]
+description = "Bindgen"
+run = [
+    "wasm-bindgen --target web ../target/wasm32-unknown-unknown/$BUILD_PROFILE/summa_indexer_wasm.wasm --out-dir ./pkg"
+]
+
+[tasks."build:wasm:opt"]
+depends = ["build:wasm:bindgen"]
+description = "wasm-opt (release only)"
+run = [
+    '[ "$BUILD_PROFILE" = "release" ] && wasm-opt -O4 --enable-bulk-memory --enable-mutable-globals --output ./pkg/summa_indexer_wasm_bg.wasm ./pkg/summa_indexer_wasm_bg.wasm || echo "Skipping wasm-opt in debug mode"'
+]
+
+[tasks."build:tsc"]
+depends = ["build:protoc", "build:wasm:bindgen"]
+description = "Create index.d.ts"
+run = [
+    "npx tsc --emitDeclarationOnly --outDir dist"
+]
+
+[tasks."build:esbuild"]
+depends = ["build:esbuild:main"]
+
+[tasks."build:esbuild:main"]
+depends = ["build:protoc"]
+description = "Bundle"
+run = [
+    "npx esbuild --bundle src/index.ts --outdir=dist --platform=node --format=esm"
+]
+[tasks.build]
+depends = [
+    "build:wasm:opt",
+    "build:wasm:bindgen",
+    "build:esbuild",
+    "build:tsc",
+]

@@ -1,0 +1,667 @@
+use std::collections::hash_map::RandomState;
+use std::collections::HashSet;
+use std::io::Write as _;
+use std::path::Path;
+use std::sync::{Arc, Mutex, RwLock};
+
+use chrono::{DateTime, Datelike};
+use tantivy_common::BitSet;
+use rand::RngCore;
+use summa_proto::proto;
+use tantivy::directory::{RamDirectory, TerminatingWrite};
+use tantivy::indexer::merge_filtered_segments;
+use tantivy::fastfield::write_alive_bitset;
+use tantivy::index::{SegmentComponent, SegmentId, SegmentReader};
+use tantivy::merge_policy::MergePolicy;
+use tantivy::query::Query;
+use tantivy::schema::document::ReferenceValueLeaf;
+use tantivy::schema::document::{CompactDocObjectIter, CompactDocValue, ReferenceValue};
+use tantivy::schema::{Field, FieldType, IndexRecordOption, OwnedValue, Value};
+use tantivy::{Directory, DocSet, Document, Index, IndexMeta, IndexWriter, Opstamp, SegmentMeta, SingleSegmentIndexWriter, TantivyDocument, Term, TERMINATED};
+use tracing::{info, warn};
+
+use super::SummaSegmentAttributes;
+use crate::configs::core::WriterThreads;
+use crate::errors::{SummaResult, ValidationError};
+use crate::Error;
+
+fn extract_flatten<'a, T: AsRef<str>>(v: CompactDocValue<'a>, parts: &[T], buffer: &mut Vec<OwnedValue>) {
+    let mut current = v;
+    for (i, part) in parts.iter().enumerate() {
+        match current.as_value() {
+            ReferenceValue::Object(m) => {
+                for (key, value) in m {
+                    if key == part.as_ref() {
+                        current = value;
+                        break;
+                    }
+                }
+            }
+            ReferenceValue::Array(a) => {
+                for child in a {
+                    extract_flatten(child, &parts[i..], buffer)
+                }
+            }
+            _ => break,
+        }
+    }
+    if let ReferenceValue::Leaf(_) = current.as_value() {
+        buffer.push(OwnedValue::from(current))
+    }
+}
+fn extract_flatten_from_map<'a, T: AsRef<str>>(m: CompactDocObjectIter<'a>, parts: &[T], buffer: &mut Vec<OwnedValue>) {
+    for (key, value) in m {
+        if key == parts[0].as_ref() {
+            match value.as_value() {
+                ReferenceValue::Leaf(_) => {}
+                ReferenceValue::Array(a) => {
+                    for child in a {
+                        extract_flatten(child, &parts[1..], buffer)
+                    }
+                }
+                ReferenceValue::Object(child) => extract_flatten_from_map(child, &parts[1..], buffer),
+            }
+        }
+    }
+}
+
+#[inline]
+fn generate_id() -> String {
+    let mut data = [0u8; 16];
+    rand::thread_rng().fill_bytes(&mut data);
+    base36::encode(&data)
+}
+
+/// Wrap `tantivy::SingleSegmentIndexWriter` and allows to recreate it
+pub struct SingleIndexWriter {
+    pub index_writer: RwLock<SingleSegmentIndexWriter>,
+    pub index: Index,
+    pub writer_heap_size_bytes: usize,
+    pub pending_deletes: Mutex<Vec<Term>>,
+}
+
+/// Hold same-thread or pooled implementation of `IndexWriter`
+pub enum IndexWriterImpl {
+    SameThread(SingleIndexWriter),
+    Threaded(IndexWriter),
+}
+
+impl IndexWriterImpl {
+    pub fn new(index: &Index, writer_threads: WriterThreads, writer_heap_size_bytes: usize, merge_policy: Arc<dyn MergePolicy>) -> SummaResult<Self> {
+        Ok(match writer_threads {
+            WriterThreads::SameThread => IndexWriterImpl::SameThread(SingleIndexWriter {
+                index: index.clone(),
+                index_writer: RwLock::new(SingleSegmentIndexWriter::new(index.clone(), writer_heap_size_bytes)?),
+                writer_heap_size_bytes,
+                pending_deletes: Mutex::new(Vec::new()),
+            }),
+            WriterThreads::N(writer_threads) => {
+                let index_writer = index.writer_with_num_threads(writer_threads as usize, writer_heap_size_bytes)?;
+                index_writer.set_merge_policy(merge_policy);
+                IndexWriterImpl::Threaded(index_writer)
+            }
+        })
+    }
+
+    pub fn delete_by_query(&self, query: Box<dyn Query>) -> SummaResult<u64> {
+        match self {
+            IndexWriterImpl::SameThread(_) => {
+                warn!(action = "delete_by_query", mode = "same_thread", query = ?query, "no-op in same-thread mode");
+                Ok(0)
+            }
+            IndexWriterImpl::Threaded(writer) => Ok(writer.delete_query(query)?),
+        }
+    }
+
+    pub fn delete_by_term(&self, term: Term) -> u64 {
+        match self {
+            IndexWriterImpl::SameThread(writer) => {
+                writer.pending_deletes.lock().expect("poisoned").push(term);
+                0
+            }
+            IndexWriterImpl::Threaded(writer) => writer.delete_term(term),
+        }
+    }
+
+    pub fn add_document(&self, document: TantivyDocument) -> SummaResult<()> {
+        match self {
+            IndexWriterImpl::SameThread(writer) => {
+                writer.index_writer.write().expect("poisoned").add_document(document)?;
+            }
+            IndexWriterImpl::Threaded(writer) => {
+                writer.add_document(document)?;
+            }
+        };
+        Ok(())
+    }
+    pub fn index(&self) -> &Index {
+        match self {
+            IndexWriterImpl::SameThread(writer) => &writer.index,
+            IndexWriterImpl::Threaded(writer) => writer.index(),
+        }
+    }
+    pub fn merge_with_attributes(&self, segment_ids: &[SegmentId], segment_attributes: Option<serde_json::Value>) -> SummaResult<Option<SegmentMeta>> {
+        match self {
+            IndexWriterImpl::SameThread(writer) => {
+                merge_same_thread(&writer.index, segment_ids, segment_attributes)
+            }
+            IndexWriterImpl::Threaded(writer) => {
+                let target_segment = writer.merge_with_attributes(segment_ids, segment_attributes).wait()?;
+                writer.garbage_collect_files().wait()?;
+                Ok(target_segment)
+            }
+        }
+    }
+    pub fn commit(&mut self) -> SummaResult<Opstamp> {
+        match self {
+            IndexWriterImpl::SameThread(writer) => {
+                let index = writer.index.clone();
+                let writer_heap_size_bytes = writer.writer_heap_size_bytes;
+                let pending_deletes: Vec<Term> = {
+                    let mut deletes = writer.pending_deletes.lock().expect("poisoned");
+                    std::mem::take(&mut *deletes)
+                };
+                // Save pre-existing segment metas before finalize overwrites meta.json
+                let old_segment_metas = index.searchable_segment_metas().unwrap_or_default();
+                let writer = writer.index_writer.get_mut().expect("poisoned");
+                take_mut::take(writer, |writer| {
+                    writer.finalize().expect("cannot finalize");
+                    SingleSegmentIndexWriter::new(index.clone(), writer_heap_size_bytes).expect("cannot recreate writer")
+                });
+                if !pending_deletes.is_empty() && !old_segment_metas.is_empty() {
+                    apply_pending_deletes(&index, &pending_deletes, &old_segment_metas)?;
+                } else if !old_segment_metas.is_empty() {
+                    // No deletes but we still need to preserve old segments in meta
+                    save_combined_meta(&index, &old_segment_metas)?;
+                }
+                Ok(0)
+            }
+            IndexWriterImpl::Threaded(writer) => {
+                info!(action = "commit_files");
+                let opstamp = writer.prepare_commit()?.commit()?;
+                info!(action = "committed", opstamp = ?opstamp);
+                Ok(opstamp)
+            }
+        }
+    }
+    pub fn rollback(&mut self) -> SummaResult<()> {
+        match self {
+            IndexWriterImpl::SameThread(writer) => {
+                writer.pending_deletes.lock().expect("poisoned").clear();
+                let index = writer.index.clone();
+                let writer_heap_size_bytes = writer.writer_heap_size_bytes;
+                let writer = writer.index_writer.get_mut().expect("poisoned");
+                *writer = SingleSegmentIndexWriter::new(index, writer_heap_size_bytes)?;
+                Ok(())
+            }
+            IndexWriterImpl::Threaded(writer) => {
+                info!(action = "rollback_files");
+                let opstamp = writer.rollback()?;
+                info!(action = "rollbacked", opstamp = ?opstamp);
+                Ok(())
+            }
+        }
+    }
+}
+
+/// Re-save meta.json to include both old segments and any new one from the index.
+fn save_combined_meta(index: &Index, old_segment_metas: &[SegmentMeta]) -> SummaResult<()> {
+    let meta = index.load_metas()?;
+    let mut all_segments: Vec<SegmentMeta> = old_segment_metas.to_vec();
+    all_segments.extend(meta.segments);
+    let updated_meta = IndexMeta {
+        segments: all_segments,
+        ..meta
+    };
+    let mut buffer = serde_json::to_vec_pretty(&updated_meta)?;
+    writeln!(&mut buffer)?;
+    index.directory().atomic_write(Path::new("meta.json"), &buffer)?;
+    Ok(())
+}
+
+/// Apply buffered delete-by-term operations to pre-existing segments only.
+/// The newly finalized segment is left untouched to avoid deleting just-added documents.
+fn apply_pending_deletes(index: &Index, pending_deletes: &[Term], old_segment_metas: &[SegmentMeta]) -> SummaResult<()> {
+    let mut updated_old_metas = Vec::new();
+
+    for old_meta in old_segment_metas {
+        let mut segment = index.segment(old_meta.clone());
+        let segment_reader = SegmentReader::open(&segment)?;
+        let max_doc = segment_reader.max_doc();
+
+        let mut alive_bitset = BitSet::with_max_value_and_full(max_doc);
+        if let Some(existing) = segment_reader.alive_bitset() {
+            alive_bitset.intersect_update(existing.bitset());
+        }
+
+        let mut has_new_deletes = false;
+        for term in pending_deletes {
+            if let Ok(inverted_index) = segment_reader.inverted_index(term.field()) {
+                if let Some(mut postings) = inverted_index.read_postings(term, IndexRecordOption::Basic)? {
+                    let mut doc_id = postings.doc();
+                    while doc_id != TERMINATED {
+                        alive_bitset.remove(doc_id);
+                        has_new_deletes = true;
+                        doc_id = postings.advance();
+                    }
+                }
+            }
+        }
+
+        if has_new_deletes {
+            let num_alive = alive_bitset.len() as u32;
+            let num_deleted = max_doc - num_alive;
+            segment = segment.with_delete_meta(num_deleted, 1);
+            let mut alive_file = segment.open_write(SegmentComponent::Delete).map_err(tantivy::TantivyError::from)?;
+            write_alive_bitset(&alive_bitset, &mut alive_file)?;
+            alive_file.terminate()?;
+        }
+
+        updated_old_metas.push(segment.meta().clone());
+    }
+
+    // Combine updated old segments with the new segment from finalize
+    save_combined_meta(index, &updated_old_metas)
+}
+
+/// Perform a single-threaded merge of the given segments.
+///
+/// Merges the specified segments into a temporary RAM directory using tantivy's
+/// `merge_filtered_segments`, copies the resulting segment files back to the
+/// original index directory, and updates meta.json.
+fn merge_same_thread(
+    index: &Index,
+    segment_ids: &[SegmentId],
+    segment_attributes: Option<serde_json::Value>,
+) -> SummaResult<Option<SegmentMeta>> {
+    let all_metas = index.searchable_segment_metas()?;
+    let segment_id_set: HashSet<SegmentId> = segment_ids.iter().copied().collect();
+    let segments_to_merge: Vec<_> = all_metas
+        .iter()
+        .filter(|meta| segment_id_set.contains(&meta.id()))
+        .map(|meta| index.segment(meta.clone()))
+        .collect();
+
+    if segments_to_merge.is_empty() {
+        return Ok(None);
+    }
+
+    let total_docs: u32 = segments_to_merge.iter().map(|s| s.meta().num_docs()).sum();
+    if total_docs == 0 {
+        // All docs deleted; remove the empty segments from meta
+        let mut meta = index.load_metas()?;
+        meta.segments.retain(|s| !segment_id_set.contains(&s.id()));
+        let mut buffer = serde_json::to_vec_pretty(&meta)?;
+        writeln!(&mut buffer)?;
+        index.directory().atomic_write(Path::new("meta.json"), &buffer)?;
+        return Ok(None);
+    }
+
+    info!(action = "merge_same_thread", num_segments = segments_to_merge.len(), total_docs = total_docs);
+
+    // Merge into a temporary RAM directory
+    let non_filter = segments_to_merge.iter().map(|_| None).collect();
+    let merged_index = merge_filtered_segments(
+        &segments_to_merge,
+        index.settings().clone(),
+        non_filter,
+        RamDirectory::default(),
+    )?;
+
+    // Get the single merged segment from the temp index
+    let merged_metas = merged_index.searchable_segment_metas()?;
+    if merged_metas.is_empty() {
+        return Ok(None);
+    }
+    let temp_meta = &merged_metas[0];
+
+    // Copy segment files from temp RAM directory to original directory
+    let src_dir = merged_index.directory();
+    let dst_dir = index.directory();
+    for file_path in temp_meta.list_files() {
+        if src_dir.exists(&file_path).unwrap_or(false) {
+            let data = src_dir
+                .open_read(&file_path)
+                .map_err(tantivy::TantivyError::from)?
+                .read_bytes()?;
+            let mut w = dst_dir
+                .open_write(&file_path)
+                .map_err(tantivy::TantivyError::from)?;
+            w.write_all(data.as_slice())?;
+            w.terminate()?;
+        }
+    }
+
+    // Register the merged segment in the original index
+    let new_meta = index.new_segment_meta(temp_meta.id(), temp_meta.num_docs(), segment_attributes);
+
+    // Update meta.json: keep non-merged segments, add the new one
+    let mut meta = index.load_metas()?;
+    meta.segments.retain(|s| !segment_id_set.contains(&s.id()));
+    meta.segments.push(new_meta.clone());
+    let mut buffer = serde_json::to_vec_pretty(&meta)?;
+    writeln!(&mut buffer)?;
+    index.directory().atomic_write(Path::new("meta.json"), &buffer)?;
+
+    info!(action = "merge_same_thread_done", merged_segment = ?new_meta.id(), num_docs = new_meta.num_docs());
+
+    Ok(Some(new_meta))
+}
+
+/// Managing write operations to index
+pub struct IndexWriterHolder {
+    index_writer: IndexWriterImpl,
+    merge_policy: Arc<dyn MergePolicy>,
+    unique_fields: Vec<Field>,
+    writer_threads: WriterThreads,
+    writer_heap_size_bytes: usize,
+    auto_id_field: Option<Field>,
+    extra_year_field: Option<(Field, Field)>,
+    mapped_fields: Vec<((Field, Vec<String>), Field)>,
+}
+
+impl IndexWriterHolder {
+    /// Creates new `IndexWriterHolder` containing `tantivy::IndexWriter` and primary key
+    ///
+    /// `IndexWriterHolder` maintains invariant that the only document with the particular primary key exists in the index.
+    /// It is reached by deletion of every document with the same primary key as indexing one.
+    /// The type of primary key is restricted to I64 but it is subjected to be changed in the future.
+    pub(super) fn new(
+        index_writer: IndexWriterImpl,
+        merge_policy: Arc<dyn MergePolicy>,
+        unique_fields: Vec<Field>,
+        auto_id_field: Option<Field>,
+        mapped_fields: Vec<((Field, Vec<String>), Field)>,
+        writer_threads: WriterThreads,
+        writer_heap_size_bytes: usize,
+    ) -> SummaResult<IndexWriterHolder> {
+        let schema = index_writer.index().schema();
+        let extra_year_field = if let (Ok(extra_field), Ok(issued_at_field)) = (schema.get_field("extra"), schema.get_field("issued_at")) {
+            Some((extra_field, issued_at_field))
+        } else {
+            None
+        };
+        Ok(IndexWriterHolder {
+            index_writer,
+            merge_policy,
+            unique_fields,
+            auto_id_field,
+            writer_threads,
+            writer_heap_size_bytes,
+            extra_year_field,
+            mapped_fields,
+        })
+    }
+
+    /// Creates new `IndexWriterHolder` from `Index` and `core::Config`
+    pub fn create(
+        index: &Index,
+        writer_threads: WriterThreads,
+        writer_heap_size_bytes: usize,
+        merge_policy: Arc<dyn MergePolicy>,
+    ) -> SummaResult<IndexWriterHolder> {
+        let index_writer = IndexWriterImpl::new(index, writer_threads.clone(), writer_heap_size_bytes, merge_policy.clone())?;
+        let schema = index_writer.index().schema();
+        let metas = index.load_metas()?;
+        let mapped_fields = metas
+            .index_attributes()?
+            .map(|attributes: proto::IndexAttributes| {
+                attributes
+                    .mapped_fields
+                    .iter()
+                    .map(|proto::MappedField { source_field, target_field }| {
+                        Ok::<((Field, Vec<String>), Field), ValidationError>((
+                            schema
+                                .find_field(source_field)
+                                .ok_or_else(|| ValidationError::MissingField(source_field.to_string()))
+                                .map(|(field, full_path)| (field, full_path.split('.').map(|x| x.to_string()).collect()))?,
+                            schema
+                                .get_field(target_field)
+                                .map_err(|_| ValidationError::MissingField(source_field.to_string()))?,
+                        ))
+                    })
+                    .collect::<Result<Vec<(_, _)>, _>>()
+            })
+            .transpose()?
+            .unwrap_or_default();
+        let unique_fields = metas
+            .index_attributes()?
+            .map(|attributes: proto::IndexAttributes| {
+                attributes
+                    .unique_fields
+                    .iter()
+                    .map(|unique_field| {
+                        schema
+                            .find_field(unique_field)
+                            .ok_or_else(|| ValidationError::MissingField(unique_field.to_string()))
+                            .map(|x| x.0)
+                    })
+                    .collect::<Result<Vec<_>, _>>()
+            })
+            .transpose()?
+            .unwrap_or_default();
+        let auto_id_field = metas
+            .index_attributes()?
+            .and_then(|attributes: proto::IndexAttributes| {
+                attributes.auto_id_field.map(|auto_id_field| {
+                    schema
+                        .get_field(&auto_id_field)
+                        .or_else(|_| Err(ValidationError::MissingField(auto_id_field.to_string())))
+                })
+            })
+            .transpose()?;
+        IndexWriterHolder::new(
+            index_writer,
+            merge_policy,
+            unique_fields,
+            auto_id_field,
+            mapped_fields,
+            writer_threads,
+            writer_heap_size_bytes,
+        )
+    }
+
+    /// Delete index by its unique fields
+    pub(super) fn resolve_conflicts(&self, document: &TantivyDocument, conflict_strategy: proto::ConflictStrategy) -> SummaResult<Option<u64>> {
+        if self.unique_fields.is_empty() || matches!(conflict_strategy, proto::ConflictStrategy::DoNothing) {
+            return Ok(None);
+        }
+
+        let unique_terms: Vec<Term> = self
+            .unique_fields
+            .iter()
+            .flat_map(|unique_field| {
+                document.get_all(*unique_field).map(|value| match value.as_value() {
+                    // ToDo: Support other types for arrays
+                    ReferenceValue::Array(iter) => Some(Ok(iter.map(|x| Term::from_field_text(*unique_field, x.as_str().unwrap())).collect())),
+                    ReferenceValue::Leaf(ReferenceValueLeaf::Str(s)) => Some(Ok(vec![Term::from_field_text(*unique_field, s)])),
+                    ReferenceValue::Leaf(ReferenceValueLeaf::I64(i)) => Some(Ok(vec![Term::from_field_i64(*unique_field, i)])),
+                    ReferenceValue::Leaf(ReferenceValueLeaf::U64(i)) => Some(Ok(vec![Term::from_field_u64(*unique_field, i)])),
+                    ReferenceValue::Leaf(ReferenceValueLeaf::F64(i)) => Some(Ok(vec![Term::from_field_f64(*unique_field, i)])),
+                    _ => {
+                        let schema = self.index_writer.index().schema();
+                        let field_type = schema.get_field_entry(*unique_field).field_type();
+                        Some(Err(Error::Validation(Box::new(ValidationError::InvalidUniqueFieldType(field_type.clone())))))
+                    }
+                })
+            })
+            .flatten()
+            .collect::<SummaResult<Vec<_>>>()?
+            .into_iter()
+            .flatten()
+            .collect();
+
+        if unique_terms.is_empty() {
+            Err(ValidationError::MissingUniqueField(format!(
+                "{:?}",
+                document.to_named_doc(&self.index_writer.index().schema()),
+            )))?
+        }
+
+        let mut last_opstamp = None;
+        for term in unique_terms {
+            last_opstamp = Some(self.delete_by_term(term))
+        }
+
+        Ok(last_opstamp)
+    }
+
+    /// Delete documents by query
+    pub(super) fn delete_by_query(&self, query: Box<dyn Query>) -> SummaResult<u64> {
+        self.index_writer.delete_by_query(query)
+    }
+
+    /// Delete documents by `Term`
+    pub(super) fn delete_by_term(&self, term: Term) -> u64 {
+        self.index_writer.delete_by_term(term)
+    }
+
+    /// Tantivy `Index`
+    pub(super) fn index(&self) -> &Index {
+        self.index_writer.index()
+    }
+
+    #[inline]
+    fn process_dynamic_fields(&self, document: &mut TantivyDocument) -> SummaResult<()> {
+        if let Some((extra_field, issued_at_field)) = self.extra_year_field {
+            if let Some(issued_at_value) = document.get_first(issued_at_field) {
+                if let Some(issued_at_value) = issued_at_value.as_i64() {
+                    if let Some(correct_timestamp) = DateTime::from_timestamp(issued_at_value, 0) {
+                        document.add_text(extra_field, correct_timestamp.year().to_string())
+                    }
+                }
+            }
+        }
+        let mut buffer = vec![];
+        for ((source_field, source_full_path), target_field) in &self.mapped_fields {
+            for value in document.get_all(*source_field) {
+                match value.as_value() {
+                    ReferenceValue::Object(entries) => extract_flatten_from_map(entries, source_full_path, &mut buffer),
+                    ReferenceValue::Leaf(leaf) => buffer.push(OwnedValue::from(value)),
+                    _ => unimplemented!(),
+                }
+            }
+            for v in &buffer {
+                document.add_field_value(*target_field, v)
+            }
+            buffer.clear();
+        }
+        Ok(())
+    }
+    #[inline]
+    fn setup_id_field(&self, document: &mut TantivyDocument) -> SummaResult<()> {
+        if let Some(auto_id_field) = &self.auto_id_field {
+            let schema = self.index_writer.index().schema();
+            match schema.get_field_entry(*auto_id_field).field_type() {
+                FieldType::Str(_) => match document.get_first(*auto_id_field) {
+                    Some(_) => {}
+                    None => document.add_text(*auto_id_field, generate_id()),
+                },
+                _ => unreachable!(),
+            }
+        }
+        Ok(())
+    }
+
+    /// Put document to the index. Before comes searchable it must be committed
+    pub fn index_document(&self, mut document: TantivyDocument, conflict_strategy: proto::ConflictStrategy) -> SummaResult<()> {
+        self.process_dynamic_fields(&mut document)?;
+        self.setup_id_field(&mut document)?;
+        self.resolve_conflicts(&document, conflict_strategy)?;
+        self.index_writer.add_document(document)?;
+        Ok(())
+    }
+
+    /// Merge segments into one.
+    ///
+    /// Also cleans deleted documents and do recompression. Possible to pass the only segment in `segment_ids` to do recompression or clean up.
+    /// It is heavy operation that also blocks on `.await` so should be spawned if non-blocking behaviour is required
+    pub fn merge(&self, segment_ids: &[SegmentId], segment_attributes: Option<SummaSegmentAttributes>) -> SummaResult<Option<SegmentMeta>> {
+        info!(action = "merge_segments", segment_ids = ?segment_ids);
+        let segment_meta = self.index_writer.merge_with_attributes(
+            segment_ids,
+            segment_attributes.map(|segment_attributes| serde_json::to_value(segment_attributes).expect("cannot serialize")),
+        )?;
+        info!(action = "merged_segments", segment_ids = ?segment_ids, merged_segment_meta = ?segment_meta);
+        Ok(segment_meta)
+    }
+
+    /// Commits already indexed documents
+    ///
+    /// Committing makes indexed documents visible
+    /// It is heavy operation that also blocks on `.await` so should be spawned if non-blocking behaviour is required
+    pub fn commit(&mut self) -> SummaResult<Opstamp> {
+        self.index_writer.commit()
+    }
+
+    pub fn rollback(&mut self) -> SummaResult<()> {
+        self.index_writer.rollback()
+    }
+
+    pub fn vacuum(&self, segment_attributes: Option<SummaSegmentAttributes>, excluded_segments: Vec<String>) -> SummaResult<()> {
+        let mut segments = self.index().searchable_segments()?;
+        segments.sort_by_key(|segment| segment.meta().num_deleted_docs());
+
+        let excluded_segments: HashSet<SegmentId, RandomState> = excluded_segments
+            .into_iter()
+            .map(|s| SegmentId::from_uuid_string(&s))
+            .collect::<Result<_, _>>()
+            .map_err(|e| Error::InvalidSegmentId(e.to_string()))?;
+
+        let segments = segments
+            .into_iter()
+            .filter(|segment| {
+                let is_frozen = segment
+                    .meta()
+                    .segment_attributes()
+                    .as_ref()
+                    .map(|segment_attributes| {
+                        let parsed_attributes = serde_json::from_value::<SummaSegmentAttributes>(segment_attributes.clone());
+                        parsed_attributes.map(|v| v.is_frozen).unwrap_or(false)
+                    })
+                    .unwrap_or(false);
+                let is_excluded = excluded_segments.contains(&segment.id());
+                !is_frozen && !is_excluded
+            })
+            .collect::<Vec<_>>();
+        if !segments.is_empty() {
+            self.merge(&segments.iter().map(|segment| segment.id()).collect::<Vec<_>>(), segment_attributes)?;
+        }
+        Ok(())
+    }
+
+    pub fn wait_merging_threads(&mut self) {
+        match &mut self.index_writer {
+            IndexWriterImpl::SameThread(_) => (),
+            IndexWriterImpl::Threaded(index_writer) => take_mut::take(index_writer, |index_writer| {
+                let index = index_writer.index().clone();
+                info!(action = "wait_merging_threads", mode = "threaded");
+                index_writer.wait_merging_threads().expect("cannot wait merging threads");
+                info!(action = "merging_threads_finished", mode = "threaded");
+                let index_writer = index
+                    .writer_with_num_threads(self.writer_threads.threads() as usize, self.writer_heap_size_bytes)
+                    .expect("cannot create index writer_holder");
+                index_writer.set_merge_policy(self.merge_policy.clone());
+                index_writer
+            }),
+        };
+    }
+
+    /// Locking index files for executing operation on them
+    pub fn commit_and_prepare(&mut self, with_hotcache: bool) -> SummaResult<Opstamp> {
+        let opstamp = self.commit()?;
+        self.wait_merging_threads();
+
+        if with_hotcache {
+            let directory = self.index().directory();
+            let hotcache_bytes = crate::directories::create_hotcache(
+                directory
+                    .underlying_directory()
+                    .expect("managed directory should contain nested directory")
+                    .box_clone(),
+            )?;
+            directory.atomic_write(Path::new(&format!("hotcache.{}.bin", opstamp)), &hotcache_bytes)?;
+        }
+        Ok(opstamp)
+    }
+}

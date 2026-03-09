@@ -1,0 +1,11 @@
+[settings]
+env_shell_expand = true
+
+[env]
+BUILD_PROFILE = "${BUILD_PROFILE:-release}"
+
+[tasks."build:cli"]
+description = "Build the CLI binary"
+run = [
+    'cargo build --bin cli --features fs $([ "$BUILD_PROFILE" = "release" ] && echo "--release")',
+]

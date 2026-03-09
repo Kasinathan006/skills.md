@@ -1,0 +1,39 @@
+{
+  "name": "framer-dalton",
+  "version": "0.0.5",
+  "type": "module",
+  "bin": {
+    "framer-dalton": "./dist/cli.js"
+  },
+  "main": "./dist/cli.js",
+  "types": "./dist/cli.d.ts",
+  "files": [
+    "dist/",
+    "docs/"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "check": "biome check .",
+    "format": "biome format --write .",
+    "generate-types": "tsx scripts/generate-types.ts"
+  },
+  "dependencies": {
+    "@trpc/client": "^11.9.0",
+    "@trpc/server": "^11.9.0",
+    "commander": "^12.1.0",
+    "framer-api": "https://pkg.pr.new/framer/FramerStudio/framer-api@5804b52.tgz",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.13",
+    "@types/node": "24.10.9",
+    "tsup": "^8.0.2",
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.2",
+    "vitest": "^4.0.18"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.build
+*.log
+.DS_Store
+.claude/*
+!.claude/skills/framer-local/SKILL.md

@@ -1,0 +1,6 @@
+{"messageNames": [
+  "summa.proto.CreateIndexRequest",
+  "summa.proto.IndexAttributes",
+  "summa.proto.IndexEngineConfig",
+  "summa.proto.CopyDocumentsResponse"
+]}

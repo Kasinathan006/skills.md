@@ -1,0 +1,45 @@
+[package]
+name = "summa-indexer-wasm"
+version = "0.138.16"
+authors = ["Andreas Kohn <andreas.kohn@framer.com>"]
+edition = "2021"
+license-file = "LICENSE"
+description = "WASM bindings for Summa Indexer"
+homepage = "https://github.com/framer/summa"
+repository = "https://github.com/framer/summa"
+readme = "README.md"
+keywords = ["async", "search", "wasm"]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "crate/lib.rs"
+
+[dependencies]
+async-trait = { workspace = true }
+chrono = { version = "0.4", features = ["wasmbind"] }
+console_error_panic_hook = "0.1.7"
+futures = "0.3.14"
+getrandom = { version = "0.2", features = ["js"] }
+parking_lot = { workspace = true }
+prost = { workspace = true }
+serde.workspace = true
+serde_json = { workspace = true }
+strfmt = { workspace = true }
+summa-core = { version = "0.25.1", path = "../summa-core", default-features = false }
+summa-indexer = { version = "0.25.1", path = "../summa-indexer" }
+summa-proto = { workspace = true }
+tantivy = { workspace = true, features = ["wasm"] }
+thiserror = { workspace = true }
+tokio = { workspace = true, default-features = false, features = ["sync"] }
+tracing = { workspace = true }
+tracing-wasm = "0.2"
+zstd-safe = "=7.0.0"
+zstd-sys = "=2.0.9"
+serde-wasm-bindgen = "0.6"
+serde_yaml.workspace = true
+js-sys = "0.3"
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4.63"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+uuid = { version = "1.13.1", default-features = false, features = ["js"] }

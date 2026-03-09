@@ -1,0 +1,1398 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`cli e2e > docs > looks up a type by name 1`] = `
+"/** Union of all CMS Collection field types. */
+type Field = BooleanField | ColorField | NumberField | StringField | FormattedTextField | ImageField | LinkField | DateField | FieldDivider | UnsupportedField | FileField | EnumField | CollectionReferenceField | MultiCollectionReferenceField | ArrayField
+
+/** A CMS Collection field that stores a boolean (true or false) value. */
+class BooleanField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a color value (RGBA/HSL/HEX format). */
+class ColorField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a numeric value. */
+class NumberField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a text string value. */
+class StringField {
+	/**
+	 * The ID of the field on which this field is based.
+	 *
+	 * When set, this field will use the referenced field's value as a fallback
+	 * when no value is provided.
+	 */
+	basedOn: string | null
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores HTML-formatted text content (H1-H6, P, and other standard content elements). */
+class FormattedTextField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores an image asset (\`ImageAsset\`). */
+class ImageField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a URL in string format. */
+class LinkField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a date in UTC format. Optionally displays time. */
+class DateField {
+	/** Controls whether time is enabled on this date field. */
+	displayTime: boolean | undefined
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A visual divider between fields in the CMS UI. Not a data field. */
+class FieldDivider {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/**
+ * A field type that is not yet supported by the plugin API.
+ * Returned when Framer uses a field type that the plugin API does not recognize.
+ */
+class UnsupportedField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a file asset (\`FileAsset\`). */
+class FileField {
+	/** The file extensions that are allowed for uploads to this field, e.g. \`["pdf", "txt"]\`. */
+	allowedFileTypes: string[]
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/**
+ * A CMS Collection field with a fixed set of enum cases (options) that the user
+ * can choose from. Enum cases must be defined as options before they can be
+ * assigned to CMS items.
+ */
+class EnumField {
+	/**
+	 * Add a new enum case to this field.
+	 *
+	 * @example
+	 * \`\`\`ts
+	 * await enumField.addCase({
+	 * 	name: "Name",
+	 * 	nameByLocale: {
+	 * 		nl: { action: "set", value: "Naam" }
+	 * 	}
+	 * })
+	 * \`\`\`
+	 *
+	 * @param attributes - An object with the enum case name and optional localized names.
+	 * @returns The newly created \`EnumCase\`, or \`null\` if the case could not be added.
+	 *
+	 * Use \`"EnumField.addCase"\` to check if this method is allowed.
+	 */
+	addCase(attributes: CreateEnumCase): Promise<EnumCase | null>
+
+	/** The available enum cases for this field. */
+	cases: readonly EnumCase[]
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+
+	/**
+	 * Set the order of the enum field's cases.
+	 *
+	 * @example
+	 * \`\`\`ts
+	 * const alphabeticalCaseOrder = enumField.cases
+	 * 	.toSorted((a, b) => a.name.localeCompare(b.name))
+	 * 	.map(({ id }) => id)
+	 * await enumField.setCaseOrder(alphabeticalCaseOrder)
+	 * \`\`\`
+	 *
+	 * @param caseIds - An array of the IDs of all enum cases, in the desired new order.
+	 *
+	 * Use \`"EnumField.setCaseOrder"\` to check if this method is allowed.
+	 */
+	setCaseOrder(caseIds: string[]): Promise<void>
+}
+
+/** A field that references an item in another collection. */
+class CollectionReferenceField {
+	/** The ID of the referenced collection. */
+	collectionId: string
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A field that references multiple items in another collection. */
+class MultiCollectionReferenceField {
+	/** The ID of the referenced collection. */
+	collectionId: string
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/**
+ * A CMS Collection field that stores an array of nested fields. Currently only
+ * supports a single image field, which creates a Gallery in the CMS.
+ */
+class ArrayField {
+	/** The nested fields within this array field. Currently limited to a single image field. */
+	fields: readonly [ArrayItemField]
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+"
+`;
+
+exports[`cli e2e > docs > shows method with inlined types 1`] = `
+"/**
+ * Fetch all fields defined on this Collection, including dividers.
+ *
+ * Some fields might not be fully supported by the API; unsupported fields
+ * will be returned with an \`unsupported\` field type.
+ *
+ * @returns An array of Field instances.
+ *
+ * @example
+ * \`\`\`ts
+ * const fields = await collection.getFields()
+ * \`\`\`
+ */
+Collection.getFields(): Promise<Field[]>
+
+/** Union of all CMS Collection field types. */
+type Field = BooleanField | ColorField | NumberField | StringField | FormattedTextField | ImageField | LinkField | DateField | FieldDivider | UnsupportedField | FileField | EnumField | CollectionReferenceField | MultiCollectionReferenceField | ArrayField
+
+/** A CMS Collection field that stores a boolean (true or false) value. */
+class BooleanField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a color value (RGBA/HSL/HEX format). */
+class ColorField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a numeric value. */
+class NumberField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a text string value. */
+class StringField {
+	/**
+	 * The ID of the field on which this field is based.
+	 *
+	 * When set, this field will use the referenced field's value as a fallback
+	 * when no value is provided.
+	 */
+	basedOn: string | null
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores HTML-formatted text content (H1-H6, P, and other standard content elements). */
+class FormattedTextField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores an image asset (\`ImageAsset\`). */
+class ImageField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a URL in string format. */
+class LinkField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a date in UTC format. Optionally displays time. */
+class DateField {
+	/** Controls whether time is enabled on this date field. */
+	displayTime: boolean | undefined
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A visual divider between fields in the CMS UI. Not a data field. */
+class FieldDivider {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/**
+ * A field type that is not yet supported by the plugin API.
+ * Returned when Framer uses a field type that the plugin API does not recognize.
+ */
+class UnsupportedField {
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A CMS Collection field that stores a file asset (\`FileAsset\`). */
+class FileField {
+	/** The file extensions that are allowed for uploads to this field, e.g. \`["pdf", "txt"]\`. */
+	allowedFileTypes: string[]
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/**
+ * A CMS Collection field with a fixed set of enum cases (options) that the user
+ * can choose from. Enum cases must be defined as options before they can be
+ * assigned to CMS items.
+ */
+class EnumField {
+	/**
+	 * Add a new enum case to this field.
+	 *
+	 * @example
+	 * \`\`\`ts
+	 * await enumField.addCase({
+	 * 	name: "Name",
+	 * 	nameByLocale: {
+	 * 		nl: { action: "set", value: "Naam" }
+	 * 	}
+	 * })
+	 * \`\`\`
+	 *
+	 * @param attributes - An object with the enum case name and optional localized names.
+	 * @returns The newly created \`EnumCase\`, or \`null\` if the case could not be added.
+	 *
+	 * Use \`"EnumField.addCase"\` to check if this method is allowed.
+	 */
+	addCase(attributes: CreateEnumCase): Promise<EnumCase | null>
+
+	/** The available enum cases for this field. */
+	cases: readonly EnumCase[]
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+
+	/**
+	 * Set the order of the enum field's cases.
+	 *
+	 * @example
+	 * \`\`\`ts
+	 * const alphabeticalCaseOrder = enumField.cases
+	 * 	.toSorted((a, b) => a.name.localeCompare(b.name))
+	 * 	.map(({ id }) => id)
+	 * await enumField.setCaseOrder(alphabeticalCaseOrder)
+	 * \`\`\`
+	 *
+	 * @param caseIds - An array of the IDs of all enum cases, in the desired new order.
+	 *
+	 * Use \`"EnumField.setCaseOrder"\` to check if this method is allowed.
+	 */
+	setCaseOrder(caseIds: string[]): Promise<void>
+}
+
+/** A field that references an item in another collection. */
+class CollectionReferenceField {
+	/** The ID of the referenced collection. */
+	collectionId: string
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/** A field that references multiple items in another collection. */
+class MultiCollectionReferenceField {
+	/** The ID of the referenced collection. */
+	collectionId: string
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+
+/**
+ * A CMS Collection field that stores an array of nested fields. Currently only
+ * supports a single image field, which creates a Gallery in the CMS.
+ */
+class ArrayField {
+	/** The nested fields within this array field. Currently limited to a single image field. */
+	fields: readonly [ArrayItemField]
+
+	/** The unique identifier of the field. */
+	id: string
+
+	/** The display name of the field as shown in the UI. */
+	name: string
+
+	/**
+	 * Remove this field.
+	 *
+	 * Use \`"Field.remove"\` to check if this method is allowed.
+	 */
+	remove(): Promise<void>
+
+	/** Whether this field is required. Required fields must have a value set on every CMS item. */
+	required: boolean
+
+	/**
+	 * Use to rename any field:
+	 *
+	 * \`\`\`ts
+	 * const updatedField = await field.setAttributes({ name: "New Name" })
+	 * \`\`\`
+	 *
+	 * And to set other attributes too, but make sure to narrow based on field's \`type\` first, as to
+	 * avoid potential bugs:
+	 *
+	 * \`\`\`ts
+	 * if (field.type === "file") await field.setAttributes({ allowedFileTypes: ["txt", "md"] })
+	 * \`\`\`
+	 *
+	 * Returns the updated field on success, and \`null\` in the unlikely event of it being removed
+	 * between getting it and calling this method.
+	 *
+	 * @param attributes - The attributes to update.
+	 *
+	 * Use \`"Field.setAttributes"\` to check if this method is allowed.
+	 */
+	setAttributes(attributes: UpdateFieldAttributes<typeof this>): Promise<typeof this | null>
+}
+"
+`;

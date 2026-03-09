@@ -1,0 +1,14 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "framer-plugin-oauth"
+main = "src/index.ts"
+compatibility_date = "2024-05-12"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Set the Plugin ID when your Plugin is submitted to the Marketplace.
+PLUGIN_PARENT_DOMAIN = "plugins.framercdn.com"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "oauth-store"
+database_id = ""

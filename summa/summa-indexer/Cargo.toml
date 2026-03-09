@@ -1,0 +1,27 @@
+[package]
+name = "summa-indexer"
+version = "0.25.1"
+edition = "2021"
+license-file = "LICENSE"
+description = "Shared indexing logic for Summa"
+
+[lib]
+name = "summa_indexer"
+path = "src/lib.rs"
+
+[features]
+default = []
+fs = ["summa-core/fs"]
+
+[dependencies]
+anyhow = { workspace = true }
+instant = { workspace = true }
+parking_lot = { workspace = true }
+prost = { workspace = true }
+serde_yaml = { workspace = true }
+summa-core = { version = "0.25.1", path = "../summa-core", default-features = false }
+summa-proto = { workspace = true }
+tantivy = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true, default-features = false, features = ["sync"] }
+tracing = { workspace = true }

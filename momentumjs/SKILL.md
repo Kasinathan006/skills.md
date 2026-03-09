@@ -1,0 +1,1 @@
+---\nname: "momentumjs"\ndescription: "Integration for the momentumjs repository from barium3 (Topic: motion-graphics)."\n---\n\n# momentumjs\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

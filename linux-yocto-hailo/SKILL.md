@@ -1,0 +1,1 @@
+---\nname: "linux-yocto-hailo"\ndescription: "Integration for the linux-yocto-hailo repository from hailo-ai."\n---\n\n# linux-yocto-hailo\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

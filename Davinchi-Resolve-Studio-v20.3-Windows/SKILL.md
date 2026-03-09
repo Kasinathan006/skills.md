@@ -1,0 +1,1 @@
+---\nname: "Davinchi-Resolve-Studio-v20.3-Windows"\ndescription: "Integration for the Davinchi-Resolve-Studio-v20.3-Windows repository from TheaterWalker (Topic: motion-graphics)."\n---\n\n# Davinchi-Resolve-Studio-v20.3-Windows\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

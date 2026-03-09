@@ -1,0 +1,1 @@
+---\nname: "RNLDNetDiagnoService"\ndescription: "Integration for the RNLDNetDiagnoService repository from FlowGPT."\n---\n\n# RNLDNetDiagnoService\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

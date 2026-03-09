@@ -1,0 +1,1 @@
+---\nname: "OpenBB"\ndescription: "Integration for the OpenBB repository from OpenBB-finance."\n---\n\n# OpenBB\n\nThis skill integrates the $repoName repository from OpenBB-finance.\n\n## Local Repository\n$destPath\n

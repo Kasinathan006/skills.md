@@ -1,0 +1,1 @@
+---\nname: "CloudBase-MCP"\ndescription: "Integration for the CloudBase-MCP repository from TencentCloudBase (Topic: vibe-coding)."\n---\n\n# CloudBase-MCP\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "cls-spotlights"\ndescription: "Integration for the cls-spotlights repository from OpenArt-AI."\n---\n\n# cls-spotlights\n\nThis skill integrates the $repoName repository from OpenArt-AI.\n\n## Local Repository\n$destPath\n

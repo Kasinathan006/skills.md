@@ -1,0 +1,1 @@
+---\nname: "dub"\ndescription: "Integration for the dub repository from dubinc."\n---\n\n# dub\n\nThis skill integrates the $repoName repository from dubinc.\n\n## Local Repository\n$destPath\n

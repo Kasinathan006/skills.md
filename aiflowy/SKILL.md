@@ -1,0 +1,1 @@
+---\nname: "aiflowy"\ndescription: "Integration for the aiflowy repository from aiflowy (Topic: n8n)."\n---\n\n# aiflowy\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

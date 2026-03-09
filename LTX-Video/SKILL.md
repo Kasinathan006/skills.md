@@ -1,0 +1,1 @@
+---\nname: "LTX-Video"\ndescription: "Integration for the LTX-Video repository."\n---\n\n# LTX-Video\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

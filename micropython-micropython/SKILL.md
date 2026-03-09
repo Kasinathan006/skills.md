@@ -1,0 +1,1 @@
+---\nname: "micropython"\ndescription: "Integration for the micropython repository from micropython."\n---\n\n# micropython\n\nThis skill integrates the $repoName repository from micropython.\n\n## Local Repository\n$destPath\n

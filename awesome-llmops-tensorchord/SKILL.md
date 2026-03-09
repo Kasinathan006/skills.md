@@ -1,0 +1,1 @@
+---\nname: "Awesome-LLMOps"\ndescription: "Integration for the Awesome-LLMOps repository from tensorchord."\n---\n\n# Awesome-LLMOps\n\nThis skill integrates the $repoName repository from tensorchord.\n\n## Local Repository\n$destPath\n

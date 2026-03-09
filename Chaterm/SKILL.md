@@ -1,0 +1,1 @@
+---\nname: "Chaterm"\ndescription: "Integration for the Chaterm repository from chaterm (Topic: vibe-coding)."\n---\n\n# Chaterm\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

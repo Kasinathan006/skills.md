@@ -1,0 +1,1 @@
+---\nname: "hailo-imaging"\ndescription: "Integration for the hailo-imaging repository from hailo-ai."\n---\n\n# hailo-imaging\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "bingart"\ndescription: "Integration for the bingart repository."\n---\n\n# bingart\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

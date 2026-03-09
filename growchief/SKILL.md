@@ -1,0 +1,1 @@
+---\nname: "growchief"\ndescription: "Integration for the growchief repository from growchief (Topic: n8n)."\n---\n\n# growchief\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

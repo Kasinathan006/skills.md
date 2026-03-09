@@ -1,0 +1,1 @@
+---\nname: "deep-person-reid"\ndescription: "Integration for the deep-person-reid repository from hailo-ai."\n---\n\n# deep-person-reid\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

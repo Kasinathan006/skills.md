@@ -1,0 +1,1 @@
+---\nname: "deep-searcher"\ndescription: "Integration for the deep-searcher repository."\n---\n\n# deep-searcher\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

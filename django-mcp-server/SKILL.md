@@ -1,0 +1,1 @@
+---\nname: "django-mcp-server"\ndescription: "Integration for the django-mcp-server repository from creatify-ai."\n---\n\n# django-mcp-server\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "StreamingAvatarSDK"\ndescription: "Integration for the StreamingAvatarSDK repository."\n---\n\n# StreamingAvatarSDK\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

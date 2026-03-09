@@ -1,0 +1,1 @@
+---\nname: "DotWriter"\ndescription: "Integration for the DotWriter repository from hailo-ai."\n---\n\n# DotWriter\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

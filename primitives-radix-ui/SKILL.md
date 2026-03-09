@@ -1,0 +1,1 @@
+---\nname: "primitives"\ndescription: "Integration for the primitives repository from radix-ui."\n---\n\n# primitives\n\nThis skill integrates the $repoName repository from radix-ui.\n\n## Local Repository\n$destPath\n

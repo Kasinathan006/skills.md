@@ -1,0 +1,1 @@
+---\nname: "Stable-Diffusion"\ndescription: "Integration for the Stable-Diffusion repository."\n---\n\n# Stable-Diffusion\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

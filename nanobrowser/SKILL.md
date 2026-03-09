@@ -1,0 +1,1 @@
+---\nname: "nanobrowser"\ndescription: "Integration for the nanobrowser repository from nanobrowser (Topic: n8n)."\n---\n\n# nanobrowser\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

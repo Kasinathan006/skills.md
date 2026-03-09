@@ -1,0 +1,1 @@
+---\nname: "codemirror-lang-n8n-sql"\ndescription: "Integration for the codemirror-lang-n8n-sql repository from n8n-io."\n---\n\n# codemirror-lang-n8n-sql\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

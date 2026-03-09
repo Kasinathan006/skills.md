@@ -1,0 +1,1 @@
+---\nname: "awesome-ai-tools"\ndescription: "Integration for the awesome-ai-tools repository from mahseema (Topic: vibe-coding)."\n---\n\n# awesome-ai-tools\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

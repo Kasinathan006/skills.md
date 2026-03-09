@@ -1,0 +1,1 @@
+---\nname: "n8n-heroku"\ndescription: "Integration for the n8n-heroku repository from n8n-io."\n---\n\n# n8n-heroku\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

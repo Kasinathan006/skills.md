@@ -1,0 +1,1 @@
+---\nname: "LPRNet_Pytorch"\ndescription: "Integration for the LPRNet_Pytorch repository from hailo-ai."\n---\n\n# LPRNet_Pytorch\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

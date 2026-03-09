@@ -1,0 +1,1 @@
+---\nname: "zeek"\ndescription: "Integration for the zeek repository from zeek."\n---\n\n# zeek\n\nThis skill integrates the $repoName repository from zeek.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "n8n-hosting"\ndescription: "Integration for the n8n-hosting repository from n8n-io."\n---\n\n# n8n-hosting\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

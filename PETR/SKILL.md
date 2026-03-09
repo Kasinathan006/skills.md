@@ -1,0 +1,1 @@
+---\nname: "PETR"\ndescription: "Integration for the PETR repository from hailo-ai."\n---\n\n# PETR\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

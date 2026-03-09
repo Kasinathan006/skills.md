@@ -1,0 +1,1 @@
+---\nname: "metamcp"\ndescription: "Integration for the metamcp repository from metatool-ai (Topic: vibe-coding)."\n---\n\n# metamcp\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

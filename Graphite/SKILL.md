@@ -1,0 +1,1 @@
+---\nname: "Graphite"\ndescription: "Integration for the Graphite repository from GraphiteEditor (Topic: motion-graphics)."\n---\n\n# Graphite\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

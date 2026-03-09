@@ -1,0 +1,1 @@
+---\nname: "generative-ai"\ndescription: "Integration for the generative-ai repository from genieincodebottle (Topic: n8n)."\n---\n\n# generative-ai\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

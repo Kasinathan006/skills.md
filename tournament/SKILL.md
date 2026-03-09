@@ -1,0 +1,1 @@
+---\nname: "tournament"\ndescription: "Integration for the tournament repository from n8n-io."\n---\n\n# tournament\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

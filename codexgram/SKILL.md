@@ -1,0 +1,1 @@
+---\nname: "codexgram"\ndescription: "Integration for the codexgram repository from creatify-ai."\n---\n\n# codexgram\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

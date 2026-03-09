@@ -1,0 +1,1 @@
+---\nname: "learn-low-code-agentic-ai"\ndescription: "Integration for the learn-low-code-agentic-ai repository from panaversity (Topic: n8n)."\n---\n\n# learn-low-code-agentic-ai\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

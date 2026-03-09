@@ -1,0 +1,1 @@
+---\nname: "hailo-media-library"\ndescription: "Integration for the hailo-media-library repository from hailo-ai."\n---\n\n# hailo-media-library\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

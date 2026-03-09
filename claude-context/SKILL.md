@@ -1,0 +1,1 @@
+---\nname: "claude-context"\ndescription: "Integration for the claude-context repository from zilliztech (Topic: vibe-coding)."\n---\n\n# claude-context\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

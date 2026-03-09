@@ -1,0 +1,1 @@
+---\nname: "nanodet"\ndescription: "Integration for the nanodet repository from hailo-ai."\n---\n\n# nanodet\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

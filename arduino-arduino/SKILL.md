@@ -1,0 +1,1 @@
+---\nname: "Arduino"\ndescription: "Integration for the Arduino repository from arduino."\n---\n\n# Arduino\n\nThis skill integrates the $repoName repository from arduino.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "validate-n8n-pull-request-title"\ndescription: "Integration for the validate-n8n-pull-request-title repository from n8n-io."\n---\n\n# validate-n8n-pull-request-title\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "rendiv"\ndescription: "Integration for the rendiv repository from thecodacus (Topic: motion-graphics)."\n---\n\n# rendiv\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

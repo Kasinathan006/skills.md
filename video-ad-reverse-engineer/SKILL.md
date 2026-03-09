@@ -1,0 +1,1 @@
+---\nname: "video-ad-reverse-engineer"\ndescription: "Integration for the video-ad-reverse-engineer repository from creatify-ai."\n---\n\n# video-ad-reverse-engineer\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

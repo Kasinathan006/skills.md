@@ -1,0 +1,1 @@
+---\nname: "n8n-ai-automations"\ndescription: "Integration for the n8n-ai-automations repository from lucaswalter (Topic: n8n)."\n---\n\n# n8n-ai-automations\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

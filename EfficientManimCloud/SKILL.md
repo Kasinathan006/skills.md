@@ -1,0 +1,1 @@
+---\nname: "EfficientManimCloud"\ndescription: "Integration for the EfficientManimCloud repository from SabboRock (Topic: motion-graphics)."\n---\n\n# EfficientManimCloud\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

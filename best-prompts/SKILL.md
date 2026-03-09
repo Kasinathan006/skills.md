@@ -1,0 +1,1 @@
+---\nname: "best-prompts"\ndescription: "Integration for the best-prompts repository from xstongxue (Topic: vibe-coding)."\n---\n\n# best-prompts\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

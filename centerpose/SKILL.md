@@ -1,0 +1,1 @@
+---\nname: "centerpose"\ndescription: "Integration for the centerpose repository from hailo-ai."\n---\n\n# centerpose\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "n8n-nodes-debughelper"\ndescription: "Integration for the n8n-nodes-debughelper repository from n8n-io."\n---\n\n# n8n-nodes-debughelper\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

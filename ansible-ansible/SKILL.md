@@ -1,0 +1,1 @@
+---\nname: "ansible"\ndescription: "Integration for the ansible repository from ansible."\n---\n\n# ansible\n\nThis skill integrates the $repoName repository from ansible.\n\n## Local Repository\n$destPath\n

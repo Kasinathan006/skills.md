@@ -1,0 +1,1 @@
+---\nname: "amplify-swift"\ndescription: "Integration for the amplify-swift repository from FlowGPT."\n---\n\n# amplify-swift\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

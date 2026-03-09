@@ -1,0 +1,1 @@
+---\nname: "QuantDinger"\ndescription: "Integration for the QuantDinger repository from brokermr810 (Topic: vibe-coding)."\n---\n\n# QuantDinger\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

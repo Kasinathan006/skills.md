@@ -1,0 +1,1 @@
+---\nname: "midjourney-bot"\ndescription: "Integration for the midjourney-bot repository."\n---\n\n# midjourney-bot\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

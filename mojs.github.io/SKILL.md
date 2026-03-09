@@ -1,0 +1,1 @@
+---\nname: "mojs.github.io"\ndescription: "Integration for the mojs.github.io repository from mojs (Topic: motion-graphics)."\n---\n\n# mojs.github.io\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

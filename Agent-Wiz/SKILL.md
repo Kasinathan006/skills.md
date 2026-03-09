@@ -1,0 +1,1 @@
+---\nname: "Agent-Wiz"\ndescription: "Integration for the Agent-Wiz repository from Repello-AI (Topic: n8n)."\n---\n\n# Agent-Wiz\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

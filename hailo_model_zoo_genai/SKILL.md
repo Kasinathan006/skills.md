@@ -1,0 +1,1 @@
+---\nname: "hailo_model_zoo_genai"\ndescription: "Integration for the hailo_model_zoo_genai repository from hailo-ai."\n---\n\n# hailo_model_zoo_genai\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

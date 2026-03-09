@@ -1,0 +1,1 @@
+---\nname: "cherry-studio"\ndescription: "Integration for the cherry-studio repository from CherryHQ (Topic: vibe-coding)."\n---\n\n# cherry-studio\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

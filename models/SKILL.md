@@ -1,0 +1,1 @@
+---\nname: "models"\ndescription: "Integration for the models repository from hailo-ai."\n---\n\n# models\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

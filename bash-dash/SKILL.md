@@ -1,0 +1,1 @@
+---\nname: "bash-dash"\ndescription: "Integration for the bash-dash repository from n8n-io."\n---\n\n# bash-dash\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

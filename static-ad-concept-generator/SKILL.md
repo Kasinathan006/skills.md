@@ -1,0 +1,1 @@
+---\nname: "static-ad-concept-generator"\ndescription: "Integration for the static-ad-concept-generator repository from creatify-ai."\n---\n\n# static-ad-concept-generator\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

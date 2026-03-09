@@ -1,0 +1,1 @@
+---\nname: "discourse-n8n-wf"\ndescription: "Integration for the discourse-n8n-wf repository from n8n-io."\n---\n\n# discourse-n8n-wf\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

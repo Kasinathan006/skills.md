@@ -1,0 +1,1 @@
+---\nname: "n8n-CyberSecurity-Workflows"\ndescription: "Integration for the n8n-CyberSecurity-Workflows repository from JoasASantos (Topic: n8n)."\n---\n\n# n8n-CyberSecurity-Workflows\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

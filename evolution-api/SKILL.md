@@ -1,0 +1,1 @@
+---\nname: "evolution-api"\ndescription: "Integration for the evolution-api repository from EvolutionAPI (Topic: n8n)."\n---\n\n# evolution-api\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

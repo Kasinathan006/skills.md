@@ -1,0 +1,1 @@
+---\nname: "magic"\ndescription: "Integration for the magic repository from polterguy (Topic: vibe-coding)."\n---\n\n# magic\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

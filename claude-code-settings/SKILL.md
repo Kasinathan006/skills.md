@@ -1,0 +1,1 @@
+---\nname: "claude-code-settings"\ndescription: "Integration for the claude-code-settings repository from feiskyer (Topic: vibe-coding)."\n---\n\n# claude-code-settings\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

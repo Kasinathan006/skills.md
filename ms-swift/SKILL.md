@@ -1,0 +1,1 @@
+---\nname: "ms-swift"\ndescription: "Integration for the ms-swift repository from FlowGPT."\n---\n\n# ms-swift\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

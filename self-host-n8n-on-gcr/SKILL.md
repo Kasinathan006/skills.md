@@ -1,0 +1,1 @@
+---\nname: "self-host-n8n-on-gcr"\ndescription: "Integration for the self-host-n8n-on-gcr repository from datawranglerai (Topic: n8n)."\n---\n\n# self-host-n8n-on-gcr\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

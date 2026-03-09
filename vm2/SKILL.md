@@ -1,0 +1,1 @@
+---\nname: "vm2"\ndescription: "Integration for the vm2 repository from n8n-io."\n---\n\n# vm2\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

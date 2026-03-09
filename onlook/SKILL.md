@@ -1,0 +1,1 @@
+---\nname: "onlook"\ndescription: "Integration for the onlook repository from onlook-dev (Topic: vibe-coding)."\n---\n\n# onlook\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "sre"\ndescription: "Integration for the sre repository from SmythOS (Topic: n8n)."\n---\n\n# sre\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

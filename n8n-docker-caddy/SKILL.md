@@ -1,0 +1,1 @@
+---\nname: "n8n-docker-caddy"\ndescription: "Integration for the n8n-docker-caddy repository from n8n-io."\n---\n\n# n8n-docker-caddy\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

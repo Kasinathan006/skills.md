@@ -1,0 +1,1 @@
+---\nname: "meta-hailo-soc"\ndescription: "Integration for the meta-hailo-soc repository from hailo-ai."\n---\n\n# meta-hailo-soc\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

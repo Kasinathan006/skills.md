@@ -1,0 +1,1 @@
+---\nname: "grok-1"\ndescription: "Integration for the grok-1 repository."\n---\n\n# grok-1\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

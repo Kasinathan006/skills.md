@@ -1,0 +1,1 @@
+---\nname: "tmpl"\ndescription: "Integration for the tmpl repository from n8n-io."\n---\n\n# tmpl\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

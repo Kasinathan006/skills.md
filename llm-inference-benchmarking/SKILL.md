@@ -1,0 +1,1 @@
+---\nname: "llm-inference-benchmarking"\ndescription: "Integration for the llm-inference-benchmarking repository from FlowGPT."\n---\n\n# llm-inference-benchmarking\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

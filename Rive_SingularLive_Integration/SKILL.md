@@ -1,0 +1,1 @@
+---\nname: "Rive_SingularLive_Integration"\ndescription: "Integration for the Rive_SingularLive_Integration repository from Berat02xz (Topic: motion-graphics)."\n---\n\n# Rive_SingularLive_Integration\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

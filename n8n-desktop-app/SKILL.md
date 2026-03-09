@@ -1,0 +1,1 @@
+---\nname: "n8n-desktop-app"\ndescription: "Integration for the n8n-desktop-app repository from n8n-io."\n---\n\n# n8n-desktop-app\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

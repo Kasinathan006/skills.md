@@ -1,0 +1,1 @@
+---\nname: "vibe-coding-prompt-template"\ndescription: "Integration for the vibe-coding-prompt-template repository from KhazP (Topic: vibe-coding)."\n---\n\n# vibe-coding-prompt-template\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

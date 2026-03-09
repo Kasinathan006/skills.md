@@ -1,0 +1,1 @@
+---\nname: "socket.io-client-swift"\ndescription: "Integration for the socket.io-client-swift repository from FlowGPT."\n---\n\n# socket.io-client-swift\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

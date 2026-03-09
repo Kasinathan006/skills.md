@@ -1,0 +1,1 @@
+---\nname: "libgdx"\ndescription: "Integration for the libgdx repository from libgdx."\n---\n\n# libgdx\n\nThis skill integrates the $repoName repository from libgdx.\n\n## Local Repository\n$destPath\n

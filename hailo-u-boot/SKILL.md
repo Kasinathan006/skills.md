@@ -1,0 +1,1 @@
+---\nname: "hailo-u-boot"\ndescription: "Integration for the hailo-u-boot repository from hailo-ai."\n---\n\n# hailo-u-boot\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

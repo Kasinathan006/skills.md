@@ -1,0 +1,1 @@
+---\nname: "element-theme-n8n"\ndescription: "Integration for the element-theme-n8n repository from n8n-io."\n---\n\n# element-theme-n8n\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

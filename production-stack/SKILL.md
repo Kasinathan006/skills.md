@@ -1,0 +1,1 @@
+---\nname: "production-stack"\ndescription: "Integration for the production-stack repository from FlowGPT."\n---\n\n# production-stack\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

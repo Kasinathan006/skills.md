@@ -1,0 +1,1 @@
+---\nname: "Eagle3_for_MiniCPM4"\ndescription: "Integration for the Eagle3_for_MiniCPM4 repository from FlowGPT."\n---\n\n# Eagle3_for_MiniCPM4\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

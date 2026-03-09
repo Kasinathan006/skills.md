@@ -1,0 +1,1 @@
+---\nname: "terraform"\ndescription: "Integration for the terraform repository from hashicorp."\n---\n\n# terraform\n\nThis skill integrates the $repoName repository from hashicorp.\n\n## Local Repository\n$destPath\n

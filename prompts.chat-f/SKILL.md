@@ -1,0 +1,1 @@
+---\nname: "prompts.chat"\ndescription: "Integration for the prompts.chat repository from f."\n---\n\n# prompts.chat\n\nThis skill integrates the $repoName repository from f.\n\n## Local Repository\n$destPath\n

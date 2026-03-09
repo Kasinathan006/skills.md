@@ -1,0 +1,1 @@
+---\nname: "detr"\ndescription: "Integration for the detr repository from hailo-ai."\n---\n\n# detr\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

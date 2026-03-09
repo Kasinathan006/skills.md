@@ -1,0 +1,1 @@
+---\nname: "contextual-qa-checklist-action"\ndescription: "Integration for the contextual-qa-checklist-action repository from n8n-io."\n---\n\n# contextual-qa-checklist-action\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

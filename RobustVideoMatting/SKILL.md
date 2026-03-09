@@ -1,0 +1,1 @@
+---\nname: "RobustVideoMatting"\ndescription: "Integration for the RobustVideoMatting repository from creatify-ai."\n---\n\n# RobustVideoMatting\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

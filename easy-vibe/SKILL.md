@@ -1,0 +1,1 @@
+---\nname: "easy-vibe"\ndescription: "Integration for the easy-vibe repository from datawhalechina (Topic: vibe-coding)."\n---\n\n# easy-vibe\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

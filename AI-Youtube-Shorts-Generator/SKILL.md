@@ -1,0 +1,1 @@
+---\nname: "AI-Youtube-Shorts-Generator"\ndescription: "Integration for the AI-Youtube-Shorts-Generator repository."\n---\n\n# AI-Youtube-Shorts-Generator\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

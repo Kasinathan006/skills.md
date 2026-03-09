@@ -1,0 +1,1 @@
+---\nname: "jesse"\ndescription: "Integration for the jesse repository from jesse-ai."\n---\n\n# jesse\n\nThis skill integrates the $repoName repository from jesse-ai.\n\n## Local Repository\n$destPath\n

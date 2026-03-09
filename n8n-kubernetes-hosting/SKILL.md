@@ -1,0 +1,1 @@
+---\nname: "n8n-kubernetes-hosting"\ndescription: "Integration for the n8n-kubernetes-hosting repository from n8n-io."\n---\n\n# n8n-kubernetes-hosting\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "Mysti"\ndescription: "Integration for the Mysti repository from DeepMyst (Topic: vibe-coding)."\n---\n\n# Mysti\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

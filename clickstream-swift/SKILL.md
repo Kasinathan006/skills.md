@@ -1,0 +1,1 @@
+---\nname: "clickstream-swift"\ndescription: "Integration for the clickstream-swift repository from FlowGPT."\n---\n\n# clickstream-swift\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

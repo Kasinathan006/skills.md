@@ -1,0 +1,1 @@
+---\nname: "FlowDocsPage"\ndescription: "Integration for the FlowDocsPage repository from FlowGPT."\n---\n\n# FlowDocsPage\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

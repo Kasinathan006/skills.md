@@ -1,0 +1,1 @@
+---\nname: "Hailo-Application-Code-Examples"\ndescription: "Integration for the Hailo-Application-Code-Examples repository from hailo-ai."\n---\n\n# Hailo-Application-Code-Examples\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "ComfyUI-Assistant"\ndescription: "Integration for the ComfyUI-Assistant repository from OpenArt-AI."\n---\n\n# ComfyUI-Assistant\n\nThis skill integrates the $repoName repository from OpenArt-AI.\n\n## Local Repository\n$destPath\n

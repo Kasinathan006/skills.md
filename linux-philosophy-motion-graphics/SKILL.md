@@ -1,0 +1,1 @@
+---\nname: "linux-philosophy-motion-graphics"\ndescription: "Integration for the linux-philosophy-motion-graphics repository from moon9io (Topic: motion-graphics)."\n---\n\n# linux-philosophy-motion-graphics\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

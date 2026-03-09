@@ -1,0 +1,1 @@
+---\nname: "Stride-AI-Agents"\ndescription: "Integration for the Stride-AI-Agents repository from joshpocock (Topic: n8n)."\n---\n\n# Stride-AI-Agents\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

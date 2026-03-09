@@ -1,0 +1,1 @@
+---\nname: ".github"\ndescription: "Integration for the .github repository from n8n-io."\n---\n\n# .github\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

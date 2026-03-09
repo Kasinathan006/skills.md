@@ -1,0 +1,1 @@
+---\nname: "openzeppelin-contracts"\ndescription: "Integration for the openzeppelin-contracts repository from OpenZeppelin."\n---\n\n# openzeppelin-contracts\n\nThis skill integrates the $repoName repository from OpenZeppelin.\n\n## Local Repository\n$destPath\n

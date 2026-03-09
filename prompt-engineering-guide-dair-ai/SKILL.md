@@ -1,0 +1,1 @@
+---\nname: "Prompt-Engineering-Guide"\ndescription: "Integration for the Prompt-Engineering-Guide repository from dair-ai."\n---\n\n# Prompt-Engineering-Guide\n\nThis skill integrates the $repoName repository from dair-ai.\n\n## Local Repository\n$destPath\n

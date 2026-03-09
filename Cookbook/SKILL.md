@@ -1,0 +1,1 @@
+---\nname: "Cookbook"\ndescription: "Integration for the Cookbook repository from FlowGPT."\n---\n\n# Cookbook\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

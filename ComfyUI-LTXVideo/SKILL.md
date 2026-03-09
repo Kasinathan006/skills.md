@@ -1,0 +1,1 @@
+---\nname: "ComfyUI-LTXVideo"\ndescription: "Integration for the ComfyUI-LTXVideo repository."\n---\n\n# ComfyUI-LTXVideo\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

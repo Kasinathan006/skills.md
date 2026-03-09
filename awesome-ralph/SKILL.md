@@ -1,0 +1,1 @@
+---\nname: "awesome-ralph"\ndescription: "Integration for the awesome-ralph repository from snwfdhmp (Topic: vibe-coding)."\n---\n\n# awesome-ralph\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

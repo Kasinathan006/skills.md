@@ -1,0 +1,1 @@
+---\nname: "imap"\ndescription: "Integration for the imap repository from n8n-io."\n---\n\n# imap\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

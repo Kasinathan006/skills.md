@@ -1,0 +1,1 @@
+---\nname: "flux"\ndescription: "Integration for the flux repository from black-forest-labs."\n---\n\n# flux\n\nThis skill integrates the lux repository.\n\n## Local Repository\nC:\Users\mohan\Downloads\PROJECT 1 ANTIGRAVITY\flux\n

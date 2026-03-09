@@ -1,0 +1,1 @@
+---\nname: "claude-squad"\ndescription: "Integration for the claude-squad repository from smtg-ai (Topic: vibe-coding)."\n---\n\n# claude-squad\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

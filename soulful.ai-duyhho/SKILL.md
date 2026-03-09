@@ -1,0 +1,1 @@
+---\nname: "soulful.ai"\ndescription: "Integration for the soulful.ai repository from duyhho."\n---\n\n# soulful.ai\n\nThis skill integrates the $repoName repository from duyhho.\n\n## Local Repository\n$destPath\n

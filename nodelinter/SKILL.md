@@ -1,0 +1,1 @@
+---\nname: "nodelinter"\ndescription: "Integration for the nodelinter repository from n8n-io."\n---\n\n# nodelinter\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

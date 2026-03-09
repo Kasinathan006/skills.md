@@ -1,0 +1,1 @@
+---\nname: "motiongfx"\ndescription: "Integration for the motiongfx repository from voxell-tech (Topic: motion-graphics)."\n---\n\n# motiongfx\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

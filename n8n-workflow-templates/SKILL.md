@@ -1,0 +1,1 @@
+---\nname: "n8n-workflow-templates"\ndescription: "Integration for the n8n-workflow-templates repository from Danitilahun (Topic: n8n)."\n---\n\n# n8n-workflow-templates\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

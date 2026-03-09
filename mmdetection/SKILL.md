@@ -1,0 +1,1 @@
+---\nname: "mmdetection"\ndescription: "Integration for the mmdetection repository from hailo-ai."\n---\n\n# mmdetection\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

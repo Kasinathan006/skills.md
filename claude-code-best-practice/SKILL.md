@@ -1,0 +1,1 @@
+---\nname: "claude-code-best-practice"\ndescription: "Integration for the claude-code-best-practice repository from shanraisshan (Topic: vibe-coding)."\n---\n\n# claude-code-best-practice\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

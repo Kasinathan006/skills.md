@@ -1,0 +1,1 @@
+---\nname: "awesome-workflow-automation"\ndescription: "Integration for the awesome-workflow-automation repository from dariubs (Topic: n8n)."\n---\n\n# awesome-workflow-automation\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "llm-min.txt"\ndescription: "Integration for the llm-min.txt repository from marv1nnnnn (Topic: vibe-coding)."\n---\n\n# llm-min.txt\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

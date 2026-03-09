@@ -1,0 +1,1 @@
+---\nname: "web-eval-agent"\ndescription: "Integration for the web-eval-agent repository from refreshdotdev (Topic: vibe-coding)."\n---\n\n# web-eval-agent\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

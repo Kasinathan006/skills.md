@@ -1,0 +1,1 @@
+---\nname: "pytorch-YOLOv4"\ndescription: "Integration for the pytorch-YOLOv4 repository from hailo-ai."\n---\n\n# pytorch-YOLOv4\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

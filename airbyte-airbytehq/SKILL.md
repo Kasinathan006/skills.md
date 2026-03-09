@@ -1,0 +1,1 @@
+---\nname: "airbyte"\ndescription: "Integration for the airbyte repository from airbytehq."\n---\n\n# airbyte\n\nThis skill integrates the $repoName repository from airbytehq.\n\n## Local Repository\n$destPath\n

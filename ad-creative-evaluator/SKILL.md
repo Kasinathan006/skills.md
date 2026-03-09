@@ -1,0 +1,1 @@
+---\nname: "ad-creative-evaluator"\ndescription: "Integration for the ad-creative-evaluator repository from creatify-ai."\n---\n\n# ad-creative-evaluator\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

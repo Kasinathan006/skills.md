@@ -1,0 +1,1 @@
+---\nname: "n8n-mcp"\ndescription: "Integration for the n8n-mcp repository from czlonkowski (Topic: n8n)."\n---\n\n# n8n-mcp\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

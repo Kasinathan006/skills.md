@@ -1,0 +1,1 @@
+---\nname: "kirara-ai"\ndescription: "Integration for the kirara-ai repository."\n---\n\n# kirara-ai\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

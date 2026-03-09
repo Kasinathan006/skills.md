@@ -1,0 +1,1 @@
+---\nname: "typeorm"\ndescription: "Integration for the typeorm repository from n8n-io."\n---\n\n# typeorm\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

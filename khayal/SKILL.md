@@ -1,0 +1,1 @@
+---\nname: "khayal"\ndescription: "Integration for the khayal repository from Redouane-E (Topic: motion-graphics)."\n---\n\n# khayal\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

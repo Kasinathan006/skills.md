@@ -1,0 +1,1 @@
+---\nname: "crystal"\ndescription: "Integration for the crystal repository from stravu (Topic: vibe-coding)."\n---\n\n# crystal\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

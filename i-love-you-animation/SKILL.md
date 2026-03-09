@@ -1,0 +1,1 @@
+---\nname: "i-love-you-animation"\ndescription: "Integration for the i-love-you-animation repository from md-abu-kayser (Topic: motion-graphics)."\n---\n\n# i-love-you-animation\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

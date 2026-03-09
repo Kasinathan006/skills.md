@@ -1,0 +1,1 @@
+---\nname: "Noi"\ndescription: "Integration for the Noi repository."\n---\n\n# Noi\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,11 @@
+{
+  "owner": "zxc-aqr",
+  "slug": "star-hotel",
+  "displayName": "Star Hotel Search",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1772004656552,
+    "commit": "https://github.com/openclaw/skills/commit/8a0b6f40d188f49923c1c297e7337e3c42b73afa"
+  },
+  "history": []
+}

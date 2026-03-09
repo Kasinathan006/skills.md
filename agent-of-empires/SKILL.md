@@ -1,0 +1,1 @@
+---\nname: "agent-of-empires"\ndescription: "Integration for the agent-of-empires repository from njbrake (Topic: vibe-coding)."\n---\n\n# agent-of-empires\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

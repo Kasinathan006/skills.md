@@ -1,0 +1,1 @@
+---\nname: "DaroEngine2"\ndescription: "Integration for the DaroEngine2 repository from TN000 (Topic: motion-graphics)."\n---\n\n# DaroEngine2\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

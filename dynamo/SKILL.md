@@ -1,0 +1,1 @@
+---\nname: "dynamo"\ndescription: "Integration for the dynamo repository from FlowGPT."\n---\n\n# dynamo\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

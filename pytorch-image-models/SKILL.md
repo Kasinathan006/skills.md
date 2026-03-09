@@ -1,0 +1,1 @@
+---\nname: "pytorch-image-models"\ndescription: "Integration for the pytorch-image-models repository from hailo-ai."\n---\n\n# pytorch-image-models\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

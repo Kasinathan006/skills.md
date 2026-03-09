@@ -1,0 +1,1 @@
+---\nname: "self-hosted-ai-starter-kit"\ndescription: "Integration for the self-hosted-ai-starter-kit repository from n8n-io."\n---\n\n# self-hosted-ai-starter-kit\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

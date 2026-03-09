@@ -1,0 +1,1 @@
+---\nname: "darknet"\ndescription: "Integration for the darknet repository from hailo-ai."\n---\n\n# darknet\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

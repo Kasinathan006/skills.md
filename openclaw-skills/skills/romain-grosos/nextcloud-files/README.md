@@ -1,0 +1,92 @@
+# ☁️ openclaw-skill-nextcloud
+
+> OpenClaw skill — Nextcloud file management and sharing via WebDAV + OCS API
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-skill-blue)](https://openclaw.ai)
+[![ClawHub](https://img.shields.io/badge/ClawHub-nextcloud--files-green)](https://clawhub.ai/Romain-Grosos/nextcloud-files)
+
+Full Nextcloud client for OpenClaw agents. Covers file/folder management (WebDAV) and sharing, tags, favorites, and user info (OCS). Includes interactive setup wizard, connection + permission validation, and a behavior restriction system via `config.json`.
+
+## Install
+
+```bash
+clawhub install nextcloud-files
+```
+
+Or manually:
+
+```bash
+git clone https://github.com/rwx-g/openclaw-skill-nextcloud \
+  ~/.openclaw/workspace/skills/nextcloud
+```
+
+## Setup
+
+```bash
+pip install requests           # install dependency first
+python3 scripts/setup.py       # credentials + permissions + connection test
+python3 scripts/init.py        # validate all configured permissions
+```
+
+You'll need a Nextcloud **App Password**: Settings → Security → App passwords.
+
+> init.py only runs write/delete tests when both `allow_write=true` and `allow_delete=true`. When `allow_delete=false`, write tests are skipped — no artifacts are created and none can be left on your instance.
+
+## What it can do
+
+| Category | Operations |
+|----------|-----------|
+| Files | create, read, write, rename, move, copy |
+| Folders | create, rename, move, copy |
+| Search | search by filename (DASL) |
+| Sharing | public links, user shares, permissions, expiry, password |
+| Tags | list, create, assign, remove (system tags) |
+| Favorites | toggle |
+| Account | quota, user info, server capabilities |
+
+## Configuration
+
+Credentials → `~/.openclaw/secrets/nextcloud_creds` (chmod 600, never committed)
+
+Required variables (set by `setup.py` or manually):
+
+```
+NC_URL=https://your-nextcloud.com
+NC_USER=your_username
+NC_PASS=your_app_password
+```
+
+Behavior → `config.json` in skill directory:
+
+```json
+{
+  "base_path": "/Jarvis",
+  "allow_write": true,
+  "allow_delete": false,
+  "allow_share": true,
+  "readonly_mode": false,
+  "share_default_permissions": 1,
+  "share_default_expire_days": null
+}
+```
+
+> **Safe defaults:** `allow_delete` is `false` by default. Enable it explicitly only if the agent needs to remove files. Start with `allow_write: true` and `allow_delete: false` for a write-only setup that cannot accidentally erase data.
+
+## Requirements
+
+- Python 3.9+
+- `requests` — install with `pip install requests` before running setup.py
+- Network access to Nextcloud instance
+
+> **Note:** setup.py does not run `pip` automatically. Install dependencies manually before setup.
+
+## Documentation
+
+- [SKILL.md](SKILL.md) — full skill instructions, CLI reference, templates
+- [references/api.md](references/api.md) — WebDAV + OCS endpoint reference
+- [references/troubleshooting.md](references/troubleshooting.md) — common errors and fixes
+
+## License
+
+[MIT](LICENSE)

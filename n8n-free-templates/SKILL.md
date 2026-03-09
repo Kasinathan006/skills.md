@@ -1,0 +1,1 @@
+---\nname: "n8n-free-templates"\ndescription: "Integration for the n8n-free-templates repository from wassupjay (Topic: n8n)."\n---\n\n# n8n-free-templates\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

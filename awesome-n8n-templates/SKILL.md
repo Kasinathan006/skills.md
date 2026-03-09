@@ -1,0 +1,1 @@
+---\nname: "awesome-n8n-templates"\ndescription: "Integration for the awesome-n8n-templates repository from enescingoz (Topic: n8n)."\n---\n\n# awesome-n8n-templates\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

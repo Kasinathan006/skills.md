@@ -1,0 +1,1 @@
+---\nname: "magicui"\ndescription: "Integration for the magicui repository from magicuidesign."\n---\n\n# magicui\n\nThis skill integrates the $repoName repository from magicuidesign.\n\n## Local Repository\n$destPath\n

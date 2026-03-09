@@ -1,0 +1,1 @@
+---\nname: "MetaGPT"\ndescription: "Integration for the MetaGPT repository from geekan."\n---\n\n# MetaGPT\n\nThis skill integrates the $repoName repository from geekan.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "remotion-scenes"\ndescription: "Integration for the remotion-scenes repository from wuxiafeihua-cmd (Topic: motion-graphics)."\n---\n\n# remotion-scenes\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

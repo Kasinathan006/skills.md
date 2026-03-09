@@ -1,0 +1,1 @@
+---\nname: "what-to-eat"\ndescription: "Integration for the what-to-eat repository from liu-ziting (Topic: vibe-coding)."\n---\n\n# what-to-eat\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

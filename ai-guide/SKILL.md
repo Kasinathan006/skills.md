@@ -1,0 +1,1 @@
+---\nname: "ai-guide"\ndescription: "Integration for the ai-guide repository from liyupi (Topic: vibe-coding)."\n---\n\n# ai-guide\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

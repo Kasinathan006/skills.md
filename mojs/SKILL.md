@@ -1,0 +1,1 @@
+---\nname: "mojs"\ndescription: "Integration for the mojs repository from mojs (Topic: motion-graphics)."\n---\n\n# mojs\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

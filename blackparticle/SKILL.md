@@ -1,0 +1,1 @@
+---\nname: "blackparticle"\ndescription: "Integration for the blackparticle repository from hassanimohammadreza (Topic: motion-graphics)."\n---\n\n# blackparticle\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

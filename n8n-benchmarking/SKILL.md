@@ -1,0 +1,1 @@
+---\nname: "n8n-benchmarking"\ndescription: "Integration for the n8n-benchmarking repository from n8n-io."\n---\n\n# n8n-benchmarking\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

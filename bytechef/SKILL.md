@@ -1,0 +1,1 @@
+---\nname: "bytechef"\ndescription: "Integration for the bytechef repository from bytechefhq (Topic: n8n)."\n---\n\n# bytechef\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

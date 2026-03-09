@@ -1,0 +1,1 @@
+---\nname: "context7"\ndescription: "Integration for the context7 repository from upstash (Topic: vibe-coding)."\n---\n\n# context7\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

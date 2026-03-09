@@ -1,0 +1,1 @@
+---\nname: "metabase"\ndescription: "Integration for the metabase repository from metabase."\n---\n\n# metabase\n\nThis skill integrates the $repoName repository from metabase.\n\n## Local Repository\n$destPath\n

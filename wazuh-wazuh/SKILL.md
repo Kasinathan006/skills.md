@@ -1,0 +1,1 @@
+---\nname: "wazuh"\ndescription: "Integration for the wazuh repository from wazuh."\n---\n\n# wazuh\n\nThis skill integrates the $repoName repository from wazuh.\n\n## Local Repository\n$destPath\n

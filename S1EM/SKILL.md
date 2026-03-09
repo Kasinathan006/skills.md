@@ -1,0 +1,1 @@
+---\nname: "S1EM"\ndescription: "Integration for the S1EM repository from V1D1AN (Topic: n8n)."\n---\n\n# S1EM\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "evals"\ndescription: "Integration for the evals repository from FlowGPT."\n---\n\n# evals\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

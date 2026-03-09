@@ -1,0 +1,1 @@
+---\nname: "crewAI"\ndescription: "Integration for the crewAI repository from joaomdmoura."\n---\n\n# crewAI\n\nThis skill integrates the $repoName repository from joaomdmoura.\n\n## Local Repository\n$destPath\n

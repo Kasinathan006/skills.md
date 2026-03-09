@@ -1,0 +1,1 @@
+---\nname: "seedream4"\ndescription: "Integration for the seedream4 repository."\n---\n\n# seedream4\n\nThis skill integrates the seedream4 repository.\n\n## Local Repository\nC:\Users\mohan\Downloads\PROJECT 1 ANTIGRAVITY\seedream4\n

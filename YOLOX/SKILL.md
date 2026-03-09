@@ -1,0 +1,1 @@
+---\nname: "YOLOX"\ndescription: "Integration for the YOLOX repository from hailo-ai."\n---\n\n# YOLOX\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

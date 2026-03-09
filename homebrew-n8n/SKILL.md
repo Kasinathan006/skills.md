@@ -1,0 +1,1 @@
+---\nname: "homebrew-n8n"\ndescription: "Integration for the homebrew-n8n repository from n8n-io."\n---\n\n# homebrew-n8n\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

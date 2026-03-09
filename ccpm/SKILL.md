@@ -1,0 +1,1 @@
+---\nname: "ccpm"\ndescription: "Integration for the ccpm repository from automazeio (Topic: vibe-coding)."\n---\n\n# ccpm\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

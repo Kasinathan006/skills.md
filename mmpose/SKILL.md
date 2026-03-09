@@ -1,0 +1,1 @@
+---\nname: "mmpose"\ndescription: "Integration for the mmpose repository from hailo-ai."\n---\n\n# mmpose\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

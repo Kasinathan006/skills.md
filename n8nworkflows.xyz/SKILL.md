@@ -1,0 +1,1 @@
+---\nname: "n8nworkflows.xyz"\ndescription: "Integration for the n8nworkflows.xyz repository from nusquama (Topic: n8n)."\n---\n\n# n8nworkflows.xyz\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

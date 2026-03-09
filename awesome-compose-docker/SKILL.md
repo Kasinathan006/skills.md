@@ -1,0 +1,1 @@
+---\nname: "awesome-compose"\ndescription: "Integration for the awesome-compose repository from docker."\n---\n\n# awesome-compose\n\nThis skill integrates the $repoName repository from docker.\n\n## Local Repository\n$destPath\n

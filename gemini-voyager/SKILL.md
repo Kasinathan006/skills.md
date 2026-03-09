@@ -1,0 +1,1 @@
+---\nname: "gemini-voyager"\ndescription: "Integration for the gemini-voyager repository from Nagi-ovo (Topic: vibe-coding)."\n---\n\n# gemini-voyager\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

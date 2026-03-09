@@ -1,0 +1,1 @@
+---\nname: "gpucost"\ndescription: "Integration for the gpucost repository from FlowGPT."\n---\n\n# gpucost\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "CLI11"\ndescription: "Integration for the CLI11 repository from hailo-ai."\n---\n\n# CLI11\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

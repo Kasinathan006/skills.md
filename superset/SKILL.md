@@ -1,0 +1,1 @@
+---\nname: "superset"\ndescription: "Integration for the superset repository from superset-sh (Topic: vibe-coding)."\n---\n\n# superset\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

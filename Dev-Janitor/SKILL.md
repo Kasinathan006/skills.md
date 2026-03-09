@@ -1,0 +1,1 @@
+---\nname: "Dev-Janitor"\ndescription: "Integration for the Dev-Janitor repository from cocojojo5213 (Topic: vibe-coding)."\n---\n\n# Dev-Janitor\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

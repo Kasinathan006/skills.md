@@ -1,0 +1,1 @@
+---\nname: "Hailo-SoC-Profiler"\ndescription: "Integration for the Hailo-SoC-Profiler repository from hailo-ai."\n---\n\n# Hailo-SoC-Profiler\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

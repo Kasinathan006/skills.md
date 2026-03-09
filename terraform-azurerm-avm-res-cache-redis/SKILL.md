@@ -1,0 +1,1 @@
+---\nname: "terraform-azurerm-avm-res-cache-redis"\ndescription: "Integration for the terraform-azurerm-avm-res-cache-redis repository from n8n-io."\n---\n\n# terraform-azurerm-avm-res-cache-redis\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

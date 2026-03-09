@@ -1,0 +1,1 @@
+---\nname: "js-client-oauth2-extended"\ndescription: "Integration for the js-client-oauth2-extended repository from n8n-io."\n---\n\n# js-client-oauth2-extended\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

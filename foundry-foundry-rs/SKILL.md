@@ -1,0 +1,1 @@
+---\nname: "foundry"\ndescription: "Integration for the foundry repository from foundry-rs."\n---\n\n# foundry\n\nThis skill integrates the $repoName repository from foundry-rs.\n\n## Local Repository\n$destPath\n

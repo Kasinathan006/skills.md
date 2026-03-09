@@ -1,0 +1,1 @@
+---\nname: "danielbayley.github.io"\ndescription: "Integration for the danielbayley.github.io repository from danielbayley (Topic: motion-graphics)."\n---\n\n# danielbayley.github.io\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

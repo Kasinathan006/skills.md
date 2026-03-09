@@ -1,0 +1,1 @@
+---\nname: "phaser"\ndescription: "Integration for the phaser repository from phaserjs."\n---\n\n# phaser\n\nThis skill integrates the phaser repository from phaserjs.\n\n## Local Repository\nC:\Users\mohan\Downloads\PROJECT 1 ANTIGRAVITY\phaser\n

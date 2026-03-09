@@ -1,0 +1,1 @@
+---\nname: "libra"\ndescription: "Integration for the libra repository from nextify-limited (Topic: vibe-coding)."\n---\n\n# libra\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

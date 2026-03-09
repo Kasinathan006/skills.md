@@ -1,0 +1,1 @@
+---\nname: "LangBot"\ndescription: "Integration for the LangBot repository from langbot-app (Topic: n8n)."\n---\n\n# LangBot\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

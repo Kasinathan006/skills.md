@@ -1,0 +1,1 @@
+---\nname: "test-workflows"\ndescription: "Integration for the test-workflows repository from n8n-io."\n---\n\n# test-workflows\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

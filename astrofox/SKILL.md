@@ -1,0 +1,1 @@
+---\nname: "astrofox"\ndescription: "Integration for the astrofox repository from astrofox-io (Topic: motion-graphics)."\n---\n\n# astrofox\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

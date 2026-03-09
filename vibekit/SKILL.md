@@ -1,0 +1,1 @@
+---\nname: "vibekit"\ndescription: "Integration for the vibekit repository from superagent-ai (Topic: vibe-coding)."\n---\n\n# vibekit\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

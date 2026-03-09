@@ -1,0 +1,1 @@
+---\nname: "onnxruntime"\ndescription: "Integration for the onnxruntime repository from hailo-ai."\n---\n\n# onnxruntime\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "Kaku"\ndescription: "Integration for the Kaku repository from tw93 (Topic: vibe-coding)."\n---\n\n# Kaku\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

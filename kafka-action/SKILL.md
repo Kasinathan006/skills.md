@@ -1,0 +1,1 @@
+---\nname: "kafka-action"\ndescription: "Integration for the kafka-action repository from FlowGPT."\n---\n\n# kafka-action\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

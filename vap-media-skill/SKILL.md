@@ -1,0 +1,1 @@
+---\nname: "vap-media-skill"\ndescription: "Integration for the vap-media-skill repository."\n---\n\n# vap-media-skill\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

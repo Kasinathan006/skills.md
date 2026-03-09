@@ -1,0 +1,1 @@
+---\nname: "langchain"\ndescription: "Integration for the langchain repository from langchain-ai."\n---\n\n# langchain\n\nThis skill integrates the $repoName repository from langchain-ai.\n\n## Local Repository\n$destPath\n

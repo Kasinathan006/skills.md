@@ -1,0 +1,1 @@
+---\nname: "superset"\ndescription: "Integration for the superset repository from apache."\n---\n\n# superset\n\nThis skill integrates the $repoName repository from apache.\n\n## Local Repository\n$destPath\n

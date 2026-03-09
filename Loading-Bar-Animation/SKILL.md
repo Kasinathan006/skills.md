@@ -1,0 +1,1 @@
+---\nname: "Loading-Bar-Animation"\ndescription: "Integration for the Loading-Bar-Animation repository from stepanovanast (Topic: motion-graphics)."\n---\n\n# Loading-Bar-Animation\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

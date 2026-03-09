@@ -1,0 +1,1 @@
+---\nname: "coolify"\ndescription: "Integration for the coolify repository from coollabsio."\n---\n\n# coolify\n\nThis skill integrates the $repoName repository from coollabsio.\n\n## Local Repository\n$destPath\n

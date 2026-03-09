@@ -1,0 +1,1 @@
+---\nname: "vanta"\ndescription: "Integration for the vanta repository from itsjwill (Topic: motion-graphics)."\n---\n\n# vanta\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

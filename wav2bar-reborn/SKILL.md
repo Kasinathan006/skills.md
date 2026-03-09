@@ -1,0 +1,1 @@
+---\nname: "wav2bar-reborn"\ndescription: "Integration for the wav2bar-reborn repository from Picorims (Topic: motion-graphics)."\n---\n\n# wav2bar-reborn\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

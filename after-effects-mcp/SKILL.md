@@ -1,0 +1,1 @@
+---\nname: "after-effects-mcp"\ndescription: "Integration for the after-effects-mcp repository from Dakkshin (Topic: motion-graphics)."\n---\n\n# after-effects-mcp\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

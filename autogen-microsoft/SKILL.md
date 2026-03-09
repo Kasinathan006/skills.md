@@ -1,0 +1,1 @@
+---\nname: "autogen"\ndescription: "Integration for the autogen repository from microsoft."\n---\n\n# autogen\n\nThis skill integrates the $repoName repository from microsoft.\n\n## Local Repository\n$destPath\n

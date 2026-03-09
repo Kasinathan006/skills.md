@@ -1,0 +1,1 @@
+---\nname: "hailo-rpi5-examples"\ndescription: "Integration for the hailo-rpi5-examples repository from hailo-ai."\n---\n\n# hailo-rpi5-examples\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

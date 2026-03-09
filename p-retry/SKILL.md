@@ -1,0 +1,1 @@
+---\nname: "p-retry"\ndescription: "Integration for the p-retry repository from n8n-io."\n---\n\n# p-retry\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

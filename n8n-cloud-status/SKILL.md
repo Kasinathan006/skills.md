@@ -1,0 +1,1 @@
+---\nname: "n8n-cloud-status"\ndescription: "Integration for the n8n-cloud-status repository from n8n-io."\n---\n\n# n8n-cloud-status\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

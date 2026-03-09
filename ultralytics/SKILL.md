@@ -1,0 +1,1 @@
+---\nname: "ultralytics"\ndescription: "Integration for the ultralytics repository from hailo-ai."\n---\n\n# ultralytics\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

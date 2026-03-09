@@ -1,0 +1,1 @@
+---\nname: "cipher"\ndescription: "Integration for the cipher repository from campfirein (Topic: vibe-coding)."\n---\n\n# cipher\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

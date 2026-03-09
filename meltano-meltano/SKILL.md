@@ -1,0 +1,1 @@
+---\nname: "meltano"\ndescription: "Integration for the meltano repository from meltano."\n---\n\n# meltano\n\nThis skill integrates the $repoName repository from meltano.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "GDevelop"\ndescription: "Integration for the GDevelop repository from 4ian (Topic: vibe-coding)."\n---\n\n# GDevelop\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "GPT_API_free"\ndescription: "Integration for the GPT_API_free repository."\n---\n\n# GPT_API_free\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

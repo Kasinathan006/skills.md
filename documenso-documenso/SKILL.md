@@ -1,0 +1,1 @@
+---\nname: "documenso"\ndescription: "Integration for the documenso repository from documenso."\n---\n\n# documenso\n\nThis skill integrates the $repoName repository from documenso.\n\n## Local Repository\n$destPath\n

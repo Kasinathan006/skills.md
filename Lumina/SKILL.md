@@ -1,0 +1,1 @@
+---\nname: "Lumina"\ndescription: "Integration for the Lumina repository."\n---\n\n# Lumina\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

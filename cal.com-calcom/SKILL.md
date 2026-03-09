@@ -1,0 +1,1 @@
+---\nname: "cal.com"\ndescription: "Integration for the cal.com repository from calcom."\n---\n\n# cal.com\n\nThis skill integrates the $repoName repository from calcom.\n\n## Local Repository\n$destPath\n

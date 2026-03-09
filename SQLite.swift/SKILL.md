@@ -1,0 +1,1 @@
+---\nname: "SQLite.swift"\ndescription: "Integration for the SQLite.swift repository from FlowGPT."\n---\n\n# SQLite.swift\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

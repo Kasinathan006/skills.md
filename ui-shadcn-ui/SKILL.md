@@ -1,0 +1,1 @@
+---\nname: "ui"\ndescription: "Integration for the ui repository from shadcn-ui."\n---\n\n# ui\n\nThis skill integrates the $repoName repository from shadcn-ui.\n\n## Local Repository\n$destPath\n

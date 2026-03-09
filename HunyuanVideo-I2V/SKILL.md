@@ -1,0 +1,1 @@
+---\nname: "HunyuanVideo-I2V"\ndescription: "Integration for the HunyuanVideo-I2V repository."\n---\n\n# HunyuanVideo-I2V\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

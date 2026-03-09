@@ -1,0 +1,1 @@
+---\nname: "godot"\ndescription: "Integration for the godot repository from godotengine."\n---\n\n# godot\n\nThis skill integrates the $repoName repository from godotengine.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "oh-my-claudecode"\ndescription: "Integration for the oh-my-claudecode repository from Yeachan-Heo (Topic: vibe-coding)."\n---\n\n# oh-my-claudecode\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

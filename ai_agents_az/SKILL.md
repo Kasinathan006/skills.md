@@ -1,0 +1,1 @@
+---\nname: "ai_agents_az"\ndescription: "Integration for the ai_agents_az repository from gyoridavid (Topic: n8n)."\n---\n\n# ai_agents_az\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

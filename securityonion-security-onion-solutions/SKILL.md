@@ -1,0 +1,1 @@
+---\nname: "securityonion"\ndescription: "Integration for the securityonion repository from Security-Onion-Solutions."\n---\n\n# securityonion\n\nThis skill integrates the $repoName repository from Security-Onion-Solutions.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "freqtrade"\ndescription: "Integration for the freqtrade repository from freqtrade."\n---\n\n# freqtrade\n\nThis skill integrates the $repoName repository from freqtrade.\n\n## Local Repository\n$destPath\n

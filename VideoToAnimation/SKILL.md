@@ -1,0 +1,1 @@
+---\nname: "VideoToAnimation"\ndescription: "Integration for the VideoToAnimation repository from goenhanceai."\n---\n\n# VideoToAnimation\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

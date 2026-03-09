@@ -1,0 +1,1 @@
+---\nname: "ppg-log-analysis"\ndescription: "Integration for the ppg-log-analysis repository from FlowGPT."\n---\n\n# ppg-log-analysis\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "devmotion"\ndescription: "Integration for the devmotion repository from epavanello (Topic: motion-graphics)."\n---\n\n# devmotion\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

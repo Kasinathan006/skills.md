@@ -1,0 +1,1 @@
+---\nname: "ruler"\ndescription: "Integration for the ruler repository from intellectronica (Topic: vibe-coding)."\n---\n\n# ruler\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

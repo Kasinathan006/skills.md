@@ -1,0 +1,1 @@
+---\nname: "DAMO-YOLO"\ndescription: "Integration for the DAMO-YOLO repository from hailo-ai."\n---\n\n# DAMO-YOLO\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

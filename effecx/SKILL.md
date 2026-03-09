@@ -1,0 +1,1 @@
+---\nname: "effecx"\ndescription: "Integration for the effecx repository from arshlibruh-code (Topic: motion-graphics)."\n---\n\n# effecx\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "insightface"\ndescription: "Integration for the insightface repository from hailo-ai."\n---\n\n# insightface\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

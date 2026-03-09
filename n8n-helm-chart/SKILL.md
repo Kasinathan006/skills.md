@@ -1,0 +1,1 @@
+---\nname: "n8n-helm-chart"\ndescription: "Integration for the n8n-helm-chart repository from 8gears (Topic: n8n)."\n---\n\n# n8n-helm-chart\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

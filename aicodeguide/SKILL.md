@@ -1,0 +1,1 @@
+---\nname: "aicodeguide"\ndescription: "Integration for the aicodeguide repository from automata (Topic: vibe-coding)."\n---\n\n# aicodeguide\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

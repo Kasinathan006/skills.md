@@ -1,0 +1,1 @@
+---\nname: "saas-onboarding-animations"\ndescription: "Integration for the saas-onboarding-animations repository from Jake4-bit (Topic: motion-graphics)."\n---\n\n# saas-onboarding-animations\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "n8n-nodes-puppeteer"\ndescription: "Integration for the n8n-nodes-puppeteer repository from drudge (Topic: n8n)."\n---\n\n# n8n-nodes-puppeteer\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

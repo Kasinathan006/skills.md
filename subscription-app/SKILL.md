@@ -1,0 +1,1 @@
+---\nname: "subscription-app"\ndescription: "Integration for the subscription-app repository from n8n-io."\n---\n\n# subscription-app\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "insights-lm-public"\ndescription: "Integration for the insights-lm-public repository from theaiautomators (Topic: n8n)."\n---\n\n# insights-lm-public\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

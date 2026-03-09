@@ -1,0 +1,1 @@
+---\nname: "task-runner-launcher"\ndescription: "Integration for the task-runner-launcher repository from n8n-io."\n---\n\n# task-runner-launcher\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

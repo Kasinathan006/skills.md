@@ -1,0 +1,1 @@
+---\nname: ".github"\ndescription: "Integration for the .github repository from OpenArt-AI."\n---\n\n# .github\n\nThis skill integrates the $repoName repository from OpenArt-AI.\n\n## Local Repository\n$destPath\n

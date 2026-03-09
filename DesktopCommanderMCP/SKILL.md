@@ -1,0 +1,1 @@
+---\nname: "DesktopCommanderMCP"\ndescription: "Integration for the DesktopCommanderMCP repository from wonderwhy-er (Topic: vibe-coding)."\n---\n\n# DesktopCommanderMCP\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

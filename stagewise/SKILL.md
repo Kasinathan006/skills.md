@@ -1,0 +1,1 @@
+---\nname: "stagewise"\ndescription: "Integration for the stagewise repository from stagewise-io (Topic: vibe-coding)."\n---\n\n# stagewise\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

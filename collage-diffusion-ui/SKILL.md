@@ -1,0 +1,1 @@
+---\nname: "collage-diffusion-ui"\ndescription: "Integration for the collage-diffusion-ui repository."\n---\n\n# collage-diffusion-ui\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

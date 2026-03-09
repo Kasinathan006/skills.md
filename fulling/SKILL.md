@@ -1,0 +1,1 @@
+---\nname: "fulling"\ndescription: "Integration for the fulling repository from FullAgent (Topic: vibe-coding)."\n---\n\n# fulling\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

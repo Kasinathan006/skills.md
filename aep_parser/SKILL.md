@@ -1,0 +1,1 @@
+---\nname: "aep_parser"\ndescription: "Integration for the aep_parser repository from forticheprod (Topic: motion-graphics)."\n---\n\n# aep_parser\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

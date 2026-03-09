@@ -1,0 +1,1 @@
+---\nname: "video-ad-generator"\ndescription: "Integration for the video-ad-generator repository from creatify-ai."\n---\n\n# video-ad-generator\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

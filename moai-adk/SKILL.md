@@ -1,0 +1,1 @@
+---\nname: "moai-adk"\ndescription: "Integration for the moai-adk repository from modu-ai (Topic: vibe-coding)."\n---\n\n# moai-adk\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

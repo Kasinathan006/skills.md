@@ -1,0 +1,1 @@
+---\nname: "solidity"\ndescription: "Integration for the solidity repository from ethereum."\n---\n\n# solidity\n\nThis skill integrates the $repoName repository from ethereum.\n\n## Local Repository\n$destPath\n

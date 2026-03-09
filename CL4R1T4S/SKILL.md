@@ -1,0 +1,1 @@
+---\nname: "CL4R1T4S"\ndescription: "Integration for the CL4R1T4S repository."\n---\n\n# CL4R1T4S\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

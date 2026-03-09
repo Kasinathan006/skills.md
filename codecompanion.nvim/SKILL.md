@@ -1,0 +1,1 @@
+---\nname: "codecompanion.nvim"\ndescription: "Integration for the codecompanion.nvim repository from olimorris (Topic: vibe-coding)."\n---\n\n# codecompanion.nvim\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

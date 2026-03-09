@@ -1,0 +1,1 @@
+---\nname: "EAGLE"\ndescription: "Integration for the EAGLE repository from FlowGPT."\n---\n\n# EAGLE\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

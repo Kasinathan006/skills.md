@@ -1,0 +1,1 @@
+---\nname: "ai-ad-prompt-guide"\ndescription: "Integration for the ai-ad-prompt-guide repository from creatify-ai."\n---\n\n# ai-ad-prompt-guide\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

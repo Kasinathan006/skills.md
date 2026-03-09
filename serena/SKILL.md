@@ -1,0 +1,1 @@
+---\nname: "serena"\ndescription: "Integration for the serena repository from oraios (Topic: vibe-coding)."\n---\n\n# serena\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

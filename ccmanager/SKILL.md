@@ -1,0 +1,1 @@
+---\nname: "ccmanager"\ndescription: "Integration for the ccmanager repository from kbwo (Topic: vibe-coding)."\n---\n\n# ccmanager\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

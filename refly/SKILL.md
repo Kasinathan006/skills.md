@@ -1,0 +1,1 @@
+---\nname: "refly"\ndescription: "Integration for the refly repository from refly-ai (Topic: vibe-coding)."\n---\n\n# refly\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

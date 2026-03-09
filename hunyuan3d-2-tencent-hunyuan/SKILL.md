@@ -1,0 +1,1 @@
+---\nname: "Hunyuan3D-2"\ndescription: "Integration for the Hunyuan3D-2 repository from Tencent-Hunyuan."\n---\n\n# Hunyuan3D-2\n\nThis skill integrates the $repoName repository from Tencent-Hunyuan.\n\n## Local Repository\n$destPath\n

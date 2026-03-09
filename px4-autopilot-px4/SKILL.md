@@ -1,0 +1,1 @@
+---\nname: "PX4-Autopilot"\ndescription: "Integration for the PX4-Autopilot repository from PX4."\n---\n\n# PX4-Autopilot\n\nThis skill integrates the $repoName repository from PX4.\n\n## Local Repository\n$destPath\n

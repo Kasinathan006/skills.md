@@ -1,0 +1,17 @@
+{
+  "owner": "synthluvr",
+  "slug": "nova",
+  "displayName": "Nova",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1771762928701,
+    "commit": "https://github.com/openclaw/skills/commit/c6014e12c0037988d9596acecd9a4cb25a8c2483"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1771679151104,
+      "commit": "https://github.com/openclaw/skills/commit/ce097b5cb08d129abe0cf10d3e56de574efb546e"
+    }
+  ]
+}

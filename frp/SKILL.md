@@ -1,0 +1,1 @@
+---\nname: "frp"\ndescription: "Integration for the frp repository from FlowGPT."\n---\n\n# frp\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "ai-marketing-skills"\ndescription: "Integration for the ai-marketing-skills repository."\n---\n\n# ai-marketing-skills\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

@@ -1,0 +1,1 @@
+---\nname: "octocode-mcp"\ndescription: "Integration for the octocode-mcp repository from bgauryy (Topic: vibe-coding)."\n---\n\n# octocode-mcp\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n

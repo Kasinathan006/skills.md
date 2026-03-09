@@ -1,0 +1,1 @@
+---\nname: "tappas"\ndescription: "Integration for the tappas repository from hailo-ai."\n---\n\n# tappas\n\nThis skill integrates the $repoName repository.\n\n## Local Repository\n$destPath\n
